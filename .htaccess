@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule !\.(js|ico|txt|gif|jpg|png|css|php)$ index.php
+<files ~ "^.*\.([Hh][Tt][Aa])">
+</files>
