@@ -14,7 +14,7 @@
         <input type="email" id="email" name="email" value="" />
         <label for="nivel">Nivel:</label>
         <input type="text" id="nivel" name="nivel" value="" />
-        <label for "logradouro">Logradouro:</label>
+        <label for "logradouro">Logradouro: </label>
         <input type="text" id="logradouro" name="logradouro" value="" />
         <label for "numero">Número:</label>
         <input type="text" id="numero" name="numero" value="" />
