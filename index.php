@@ -95,15 +95,6 @@
                     echo "<script type='text/javascript'>alert('$error_message');</script>";
                 }
                 break;
-        case 'delete':
-            if ($id) {
-               // $count = delete_city($id);
-                header("Location: .?deleted={$count}");
-            } else {
-                $error_message = 'Invalid city data. Check all fields and resubmit.';
-                include('view/error.php');
-            }
-            break;
         default: 
             include('view/formLog.php');
     } 
