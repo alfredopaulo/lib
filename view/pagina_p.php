@@ -1,6 +1,8 @@
+<br>
 <a href="./view/formCadastrar.php">cadastrar</a>
+<br>
 <a href="/libra/">login</a>
-
+<br>
 
 
 
@@ -16,11 +18,18 @@ if (!isset($_SESSION['usuario'])) {
     header("Location: /libra/"); exit;
 }
 
-//botao para deslogar 
-echo "<a href='./view/logout.php'>Deslogar</a>";
-
+//echo "<a href='./view/logout.php'>Deslogar</a>";
 
 ?>
+
+<html>
+
+<form action="." method="post">
+        <input type="hidden" name="action" value="deslogar">
+        <input type="submit" value="deslogar" />
+</html>
+
+
 
 <h1>Página restrita</h1>
 <p>Olá, <?php echo $_SESSION['usuario']; ?>!</p>

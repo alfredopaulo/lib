@@ -28,9 +28,14 @@
             $action = 'formLog';
         }
     }
-    
+   // echo $action; mostrar a variavel action
+    echo "<br>";
     
     switch($action) {
+
+        //mostrar a variavel action
+      
+       
             case 'cadastrar':
                 $count = cadastrar($nome, $usuario, $senha, $email, $nivel, $logradouro, $numero, $bairro, $cidade, $estado, $cep,$complemento, $cpf, $nivel);
                 if ($count > 0) {
@@ -45,6 +50,11 @@
               
                 break;
             break;
+
+            case 'deslogar':
+                deslogar();
+               // include('view/formLog.php');
+                break;
 
             case 'login':        
                 if (!empty($usuario) && !empty($senha)) {

@@ -65,7 +65,7 @@ function getId($usuario){
 
 function deslogar(){
     session_destroy();
-    header("Location:index.php");
+    header("Location:/libra/");
 }
 
 function cadastrar($nome, $usuario, $senha, $email, $nivel, $logradouro, $numero, $bairro, $cidade, $estado, $cep,$complemento, $cpf){
