@@ -7,6 +7,7 @@ function login($usuario, $senha){
   //  echo $usuario;
   //  echo $senha;
     $query = "SELECT * FROM usuarios WHERE usuario = :usuario AND senha = :senha";
+
     $statement = $db->prepare($query);
     $statement->bindValue(':usuario', $usuario);
     $statement->bindValue(':senha', $senha);
@@ -17,8 +18,59 @@ function login($usuario, $senha){
     return $count;
 }
 
+
+function getNivel($usuario){
+    global $db; 
+    $nivel = 0;
+    $query = "SELECT nivel FROM usuarios WHERE usuario = :usuario";
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':usuario', $usuario);
+    if ($statement->execute()) {
+        $nivel = $statement->fetchColumn();
+    };
+    $statement->closeCursor();
+    return $nivel;
+}
+
+function getNome($usuario){
+    global $db; 
+    $nome = 0;
+    $query = "SELECT nome FROM usuarios WHERE usuario = :usuario";
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':usuario', $usuario);
+    if ($statement->execute()) {
+        $nome = $statement->fetchColumn();
+    };
+    $statement->closeCursor();
+    return $nome;
+}
+
+function getId($usuario){
+    global $db; 
+    $id = 0;
+    $query = "SELECT id FROM usuarios WHERE usuario = :usuario";
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':usuario', $usuario);
+    if ($statement->execute()) {
+        $id = $statement->fetchColumn();
+    };
+    $statement->closeCursor();
+    return $id;
+}
+
+
+
+function deslogar(){
+    session_destroy();
+    header("Location:index.php");
+}
+
 function cadastrar($nome, $usuario, $senha, $email, $nivel, $logradouro, $numero, $bairro, $cidade, $estado, $cep,$complemento, $cpf){
     global $db;
+   // $link = mysqli_connect("localhost", "root", "", "integracao");
     $count = 0;
   
     $query = "INSERT INTO usuarios (nome, usuario, senha, email, nivel, logradouro, numero, bairro, cidade, estado, cep,complemento, cpf)
@@ -49,6 +101,7 @@ function cadastrar($nome, $usuario, $senha, $email, $nivel, $logradouro, $numero
             $count = $statement->rowCount();
         };
     }
+
     $statement->closeCursor();
     return $count;
 }

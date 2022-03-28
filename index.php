@@ -51,6 +51,27 @@
                     $count = login($usuario, $senha);
                    // echo $count;
                     if ($count > 0) {
+
+                        $message = 'Usuário logado com sucesso!';
+                        echo "<script type='text/javascript'>alert('$message');</script>";
+                        //funcao para pegar o nivel do usuario
+                        $nivel = getNivel($usuario);
+                        //echo $nivel;
+                        //funcao para pegar o nome do usuario
+                        $nome = getNome($usuario);
+                        //echo $nome;
+                        //funcao para pegar o id do usuario
+                        $id = getId($usuario);
+                        //echo $id;
+
+                        //criar sessao
+                        session_start();
+                        $_SESSION['usuario'] = $usuario;
+                        $_SESSION['nivel'] = $nivel;
+                        $_SESSION['nome'] = $nome;
+
+                        
+
                         include('view/pagina_p.php');
                        // header("Location:view/pagina_p.php");
                     } else {
