@@ -17,7 +17,7 @@
     $estado = filter_input(INPUT_POST, 'estado');
     $cep = filter_input(INPUT_POST, 'cep');
     $cpf = filter_input(INPUT_POST, 'cpf');
-    $nivel = filter_input(INPUT_POST, 'nivel');
+    //$nivel = filter_input(INPUT_POST, 'nivel');
 
     
 
@@ -37,18 +37,15 @@
       
        
             case 'cadastrar':
-                $count = cadastrar($nome, $usuario, $senha, $email, $nivel, $logradouro, $numero, $bairro, $cidade, $estado, $cep,$complemento, $cpf, $nivel);
+                $count = cadastrar($nome, $usuario, $senha, $email, $nivel, $logradouro, $numero, $bairro, $cidade, $estado, $cep,$complemento, $cpf);
                 if ($count > 0) {
                     $message = 'Usuário cadastrado com sucesso!';
-                    echo "<script type='text/javascript'>alert('$message');</script>";
                 } else {
                     $message = 'Não foi possível cadastrar o usuário!';
-                    echo "<script type='text/javascript'>alert('$message');</script>";
                 }
+                echo "<script type='text/javascript'>alert('$message');</script>";
                 include('view/formCadastrar.php');
-               // header("Location:view/formCadastrar.php");
-              
-                break;
+               // header("Location:view/formCadastrar.php");break;
             break;
 
             case 'deslogar':
