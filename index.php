@@ -5,8 +5,7 @@
     $action = filter_input(INPUT_POST, 'action');
 
     $nome = filter_input(INPUT_POST, 'nome');
-    $usuario = filter_input(INPUT_POST, 'usuario');
-    $senha = filter_input(INPUT_POST, "senha");
+ 
     $email = filter_input(INPUT_POST, "email");
     $nivel = filter_input(INPUT_POST, 'nivel');
     $logradouro = filter_input(INPUT_POST, 'logradouro');
@@ -18,6 +17,12 @@
     $cep = filter_input(INPUT_POST, 'cep');
     $cpf = filter_input(INPUT_POST, 'cpf');
     //$nivel = filter_input(INPUT_POST, 'nivel');
+
+    $titulo = filter_input(INPUT_POST, 'titulo');
+    $autor = filter_input(INPUT_POST, 'autor');
+    $stats = filter_input(INPUT_POST, 'stats');
+    $error = "";
+
 
     
 
@@ -52,15 +57,29 @@
                 deslogar();
                // include('view/formLog.php');
                 break;
+            case 'cadastrarLivro':
+                $count = cadastrarLivro($titulo, $autor, $stats);
+                if ($count > 0) {
+                    $message = 'Livro cadastrado com sucesso!';
+                } else {
+                    $message = 'Não foi possível cadastrar o livro!';
+                }
+                echo "<script type='text/javascript'>alert('$message');</script>";
+                include('view/formCadastrarLivro.php');
+                break;
 
-            case 'login':        
+            case 'login':   
+                $usuario = filter_input(INPUT_POST, 'usuario');
+                $senha = filter_input(INPUT_POST, "senha");     
                 if (!empty($usuario) && !empty($senha)) {
+                    
                     $count = login($usuario, $senha);
-                   // echo $count;
                     if ($count > 0) {
+                        $_SESSION['usuario'] = $usuario;
+                        $_SESSION['nivel'] = $nivel;
 
                         $message = 'Usuário logado com sucesso!';
-                        echo "<script type='text/javascript'>alert('$message');</script>";
+                      //  echo "<script type='text/javascript'>alert('$message');</script>";
                         //funcao para pegar o nivel do usuario
                         $nivel = getNivel($usuario);
                         //echo $nivel;
@@ -69,27 +88,22 @@
                         //echo $nome;
                         //funcao para pegar o id do usuario
                         $id = getId($usuario);
-                        //echo $id;
-
-                        //criar sessao
-                        session_start();
-                        $_SESSION['usuario'] = $usuario;
-                        $_SESSION['nivel'] = $nivel;
-                        $_SESSION['nome'] = $nome;
-
                         
-
                         include('view/pagina_p.php');
                        // header("Location:view/pagina_p.php");
                     } else {
-                        $error_message = 'Usuario ou senha invalidos';
+                        $error = 'Usuario ou senha invalidos';
+                        header('location:index.php');
                         include('view/formLog.php');
-                        echo "<script type='text/javascript'>alert('$error_message');</script>";
+                      //  echo "<script type='text/javascript'>alert('$error_message');</script>";
                     }
                 }else{
-                    $error_message = 'Digite usuario e senha para logar';
+                    unset ($_SESSION['usuario']);
+                    unset ($_SESSION['nivel']);
+                    
+                  $error = 'Digite usuario e senha para logar';
                     include('view/formLog.php');
-                    echo "<script type='text/javascript'>alert('$error_message');</script>";
+                  //  echo "<script type='text/javascript'>alert('$error_message');</script>";
                 }
                 break;
         default: 

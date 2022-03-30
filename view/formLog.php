@@ -8,5 +8,15 @@
         <input type="password" id="senha" name="senha" value="" />
         <input type="submit" value="login" />
         <input  type="reset" value="Limpar" />
+
+
+        <?php
+
+        if($error != ""){
+            echo '<p>'.$error.'</p>';
+        }
+
+        ?>
+
     
     </fieldset>

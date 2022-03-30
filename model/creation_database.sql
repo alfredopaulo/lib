@@ -18,4 +18,13 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
       PRIMARY KEY (`id`)
 )
 
+CREATE TABLE IF NOT EXIST `livros`(
+ `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+ `titulo` VARCHAR( 40 ) NOT NULL ,
+ `autor` VARCHAR( 40 ) NOT NULL ,
+ `status` int(2) NOT NULL ,
+  PRIMARY KEY (`id`)
+
+)
+
 INSERT INTO `usuarios` VALUES (NULL, 'Usuário Teste', 'demo', SHA1( 'demo'), 'usuario@demo.com.br', 1, 1, NOW( ),'17','jauari','69280','manicore','AM','027345231','123','123');

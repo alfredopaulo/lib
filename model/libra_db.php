@@ -4,6 +4,9 @@
 function login($usuario, $senha){
     global $db; 
     $count = 0;
+  //  session_start();
+
+   // $usuario = $_SESSION['usuario'];
   //  echo $usuario;
   //  echo $senha;
     $query = "SELECT * FROM usuarios WHERE usuario = :usuario AND senha = :senha";
@@ -106,5 +109,19 @@ function cadastrar($nome, $usuario, $senha, $email, $nivel, $logradouro, $numero
     return $count;
 }
 
+function cadastrarLivro($titulo, $autor, $stats){
+    global $db;
+    $count = 0;
+    $query = "INSERT INTO livros (titulo, autor, stats)
+              VALUES (:titulo, :autor, :stats)";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':titulo', $titulo);
+    $statement->bindValue(':autor', $autor);
+    $statement->bindValue(':stats', $stats);
+    $count = $statement->execute();
+    $statement->closeCursor();
+
+    return $count;
+}
 
 ?>

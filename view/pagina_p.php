@@ -4,19 +4,11 @@
 <a href="/libra/">login</a>
 <br>
 
+<a href="./view/formCadastrarLivro.php"> Cadastrar livro </a>
 
 
 
 <?php
-
-if (!isset($_SESSION)) session_start();
-
-if (!isset($_SESSION['usuario'])) {
-    // Destrói a sessão por segurança
-    session_destroy();
-    // Redireciona o visitante de volta pro login
-    header("Location: /libra/"); exit;
-}
 
 //echo "<a href='./view/logout.php'>Deslogar</a>";
 
