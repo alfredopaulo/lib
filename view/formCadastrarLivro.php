@@ -1,5 +1,5 @@
 <?php
-include_once('sessao.php');
+//include_once('sessao.php');
 
 ?>
 
