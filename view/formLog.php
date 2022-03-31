@@ -12,8 +12,9 @@
 
         <?php
 
-        if($error != ""){
-            echo '<p>'.$error.'</p>';
+      //se a global de erro nao estiver vazia mostra a mensagem de erro
+        if ($GLOBALS["error"] != "") {
+            echo '<p>'.$GLOBALS["error"] .'</p>';
         }
 
         ?>

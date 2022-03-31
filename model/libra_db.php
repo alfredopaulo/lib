@@ -4,11 +4,7 @@
 function login($usuario, $senha){
     global $db; 
     $count = 0;
-  //  session_start();
-
-   // $usuario = $_SESSION['usuario'];
-  //  echo $usuario;
-  //  echo $senha;
+  
     $query = "SELECT * FROM usuarios WHERE usuario = :usuario AND senha = :senha";
 
     $statement = $db->prepare($query);
@@ -18,6 +14,7 @@ function login($usuario, $senha){
         $count = $statement->rowCount();
     };
     $statement->closeCursor();
+
     return $count;
 }
 

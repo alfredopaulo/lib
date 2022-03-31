@@ -1,3 +1,8 @@
+<?php
+
+//include('session.php');
+
+?>
 <br>
 <a href="./view/formCadastrar.php">cadastrar</a>
 <br>
@@ -24,5 +29,5 @@
 
 
 <h1>Página restrita</h1>
-<p>Olá, <?php echo $_SESSION['usuario']; ?>!</p>
+
 

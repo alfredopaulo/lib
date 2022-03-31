@@ -21,7 +21,10 @@
     $titulo = filter_input(INPUT_POST, 'titulo');
     $autor = filter_input(INPUT_POST, 'autor');
     $stats = filter_input(INPUT_POST, 'stats');
-    $error = "";
+
+
+    $GLOBALS['error'] = "";
+    $error_message = null;
 
 
     
@@ -57,26 +60,35 @@
                 deslogar();
                // include('view/formLog.php');
                 break;
+
             case 'cadastrarLivro':
                 $count = cadastrarLivro($titulo, $autor, $stats);
                 if ($count > 0) {
-                    $message = 'Livro cadastrado com sucesso!';
+                    $error_message  = 'Livro cadastrado com sucesso!';
                 } else {
-                    $message = 'Não foi possível cadastrar o livro!';
+                    $error_message   = 'Não foi possível cadastrar o livro!';
                 }
-                echo "<script type='text/javascript'>alert('$message');</script>";
-                include('view/formCadastrarLivro.php');
+
+                echo $error_message;
+
+           // include('view/error.php');
+            include('view/formCadastrarLivro.php');
+           // header("Location:view/formCadastrarLivro.php");
+  
+
                 break;
 
             case 'login':   
                 $usuario = filter_input(INPUT_POST, 'usuario');
                 $senha = filter_input(INPUT_POST, "senha");     
+
+
                 if (!empty($usuario) && !empty($senha)) {
                     
                     $count = login($usuario, $senha);
                     if ($count > 0) {
-                        $_SESSION['usuario'] = $usuario;
-                        $_SESSION['nivel'] = $nivel;
+                       
+                     $_SESSION['usuario'] = $usuario;
 
                         $message = 'Usuário logado com sucesso!';
                       //  echo "<script type='text/javascript'>alert('$message');</script>";
@@ -88,19 +100,20 @@
                         //echo $nome;
                         //funcao para pegar o id do usuario
                         $id = getId($usuario);
+
                         
                         include('view/pagina_p.php');
                        // header("Location:view/pagina_p.php");
-                    } else {
+                    } else {     
                         $error = 'Usuario ou senha invalidos';
+                     //   unset ($_SESSION['usuario']);
+                      //  unset ($_SESSION['nivel']);
+
                         header('location:index.php');
                         include('view/formLog.php');
                       //  echo "<script type='text/javascript'>alert('$error_message');</script>";
                     }
                 }else{
-                    unset ($_SESSION['usuario']);
-                    unset ($_SESSION['nivel']);
-                    
                   $error = 'Digite usuario e senha para logar';
                     include('view/formLog.php');
                   //  echo "<script type='text/javascript'>alert('$error_message');</script>";

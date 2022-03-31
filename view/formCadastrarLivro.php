@@ -1,7 +1,3 @@
-<?php
-//include_once('sessao.php');
-
-?>
 
 <html>
 <form action="../index.php" method="POST">
@@ -14,10 +10,15 @@
         <input type="text" id="autor" name="autor" value="" />
         <label for="status">Status:</label>
         <input type="text" id="stats" name="stats" value="" />
-        <input type="submit" value="cadastrar" />
+        <input type="submit" value="cadastrar" onclick="history.go(-1)"/>
         <input  type="reset" value="Limpar" />
         <input type="button" value="Voltar" onclick="history.go(-1)">
+
+    </fieldset>
 </form>
+
+
+
 
 
 
