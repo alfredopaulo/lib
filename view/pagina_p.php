@@ -10,6 +10,28 @@
 <br>
 
 <a href="./view/formCadastrarLivro.php"> Cadastrar livro </a>
+<br>
+
+<a href="./view/excluirLivro.php"> Excluir livro</a>
+
+<br>
+
+<a href="./view/atualizarLivro.php"> Atualizar Livro</a>
+<br>
+
+<a href="./view/totaldelivrosporautor.php"> Total de Livros por autor</a>
+
+
+<form action="." method="post">
+    <input type="hidden" name="action" value="listarLivros">
+    <input type="submit" value="listarLivros" />
+</form>
+
+
+
+
+
+
 
 
 
@@ -20,11 +42,6 @@
 ?>
 
 <html>
-
-<form action="." method="post">
-        <input type="hidden" name="action" value="deslogar">
-        <input type="submit" value="deslogar" />
-</html>
 
 
 

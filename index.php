@@ -27,6 +27,9 @@
     $error_message = null;
 
 
+    $codigo = filter_input(INPUT_POST, 'codigo');
+
+
     
 
 
@@ -38,10 +41,12 @@
     }
    // echo $action; mostrar a variavel action
     echo "<br>";
+    echo $action;
     
     switch($action) {
 
-        //mostrar a variavel action
+        //mmostrar a variavel action
+     
       
        
             case 'cadastrar':
@@ -56,9 +61,42 @@
                // header("Location:view/formCadastrar.php");break;
             break;
 
+            case 'listarLivros':
+
+                //botao para voltar uma pagina anterior
+                echo "<input type='button' value='voltar' onclick='history.go(-1)'>";
+                listarLivros();
+            break;
+
             case 'deslogar':
                 deslogar();
                // include('view/formLog.php');
+                break;
+            case 'excluirLivro':
+              //  echo $codigo;
+              //  $id = filter_input(INPUT_GET, 'id');
+              //mostrar os livros cadastrados
+                $result = excluirLivro($codigo);
+                echo $result;
+
+                
+                if($result>0){
+                    $message = 'Livro excluido com sucesso!';
+                //$result = listarLivros();
+                }else{
+                    $message = 'Não foi possível excluir o livro!';
+                }
+                echo $message;
+                 //listarLivros();
+                 //listarLivros();
+        
+
+                 //include('view/excluirLivro.php');
+
+                // header("http://localhost/libra/view/excluirLivro.php");
+
+
+
                 break;
 
             case 'cadastrarLivro':
