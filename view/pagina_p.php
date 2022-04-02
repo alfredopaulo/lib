@@ -20,6 +20,8 @@
 <br>
 
 <a href="./view/totaldelivrosporautor.php"> Total de Livros por autor</a>
+<br>
+<a href="./view/pesquisarLivro.php"> Pesquisar Livro</a>
 
 
 <form action="." method="post">
