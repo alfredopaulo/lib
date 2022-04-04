@@ -2,6 +2,7 @@
     require('model/database.php'); 
     require('model/libra_db.php');
     require('model/Aluno.php');
+    require('model/Emprestimo.php');
 
     $action = filter_input(INPUT_POST, 'action');
 
@@ -184,6 +185,24 @@
             }
             echo "<script type='text/javascript'>alert('$message');</script>";
             include('view/formCadastrarAluno.php');
+
+            break;
+
+        case 'cadastrar_emprestimo':
+            $id_aluno_emprestimo = filter_input(INPUT_POST, 'id_aluno');
+            $data_emprestimo_emprestimo = filter_input(INPUT_POST, 'data_emprestimo');
+            $data_devolucao_emprestimo = filter_input(INPUT_POST, 'data_devolucao');
+            
+            $count = cadastrarEmprestimo($id_aluno_emprestimo, $data_emprestimo_emprestimo,
+                $data_devolucao_emprestimo);
+            
+            if($count > 0){
+                $message = 'Emprestimo cadastrado com sucesso!';
+            }else{
+                $message = 'Não foi possível cadastrar emprestimo!';
+            }
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            include('view/formCadastrarEmprestimo.php');
 
             break;
 

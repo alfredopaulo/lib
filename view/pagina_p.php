@@ -27,6 +27,9 @@
 <a href="./view/formCadastrarAluno.php">Cadastrar Aluno</a>
 <br>
 
+<a href="./view/formCadastrarEmprestimo.php">Cadastrar Emprestimo</a>
+<br>
+
 <form action="." method="post">
     <input type="hidden" name="action" value="listarLivros">
     <input type="submit" value="listarLivros" />

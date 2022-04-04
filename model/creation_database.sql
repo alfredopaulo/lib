@@ -42,5 +42,13 @@ CREATE TABLE IF NOT EXIST `livros`(
   PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS emprestimo(
+    id integer PRIMARY KEY AUTO_INCREMENT,
+    id_aluno int NOT NULL,
+    data_emprestimo varchar(10) NOT NULL,
+    data_devolucao varchar(10) NOT NULL,
+    CONSTRAINT fk_aluno_emprestimo FOREIGN KEY (id_aluno) REFERENCES aluno (id)
+);
+
 INSERT INTO `usuarios` VALUES (NULL, 'Usuário Teste', 'demo', SHA1( 'demo'), 'usuario@demo.com.br', 1, 1, NOW( ),'17','jauari','69280','manicore','AM','027345231','123','123');
 INSERT INTO `aluno` (`id`, `matricula`, `cpf`, `nome`, `email`, `logradouro`, `numero`, `bairro`, `cidade`, `estado`, `cep`, `complemento`, `status_aluno`) VALUES (NULL, '123123', '12312312312', 'teste', 'teste@teste.com', 'teste', '1', 'teste', 'teste', 'teste', '123123', 'testes', '1');
