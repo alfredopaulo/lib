@@ -1,6 +1,7 @@
 <?php 
     require('model/database.php'); 
     require('model/libra_db.php');
+    require('model/Aluno.php');
 
     $action = filter_input(INPUT_POST, 'action');
 
@@ -157,6 +158,35 @@
                   //  echo "<script type='text/javascript'>alert('$error_message');</script>";
                 }
                 break;
+        
+        
+        case 'cadastrar_aluno':
+            $matricula_aluno = filter_input(INPUT_POST, 'matricula');
+            $cpf_aluno = filter_input(INPUT_POST, 'cpf');
+            $nome_aluno = filter_input(INPUT_POST, 'nome');
+            $email_aluno = filter_input(INPUT_POST, "email");
+            $logradouro_aluno = filter_input(INPUT_POST, 'logradouro');
+            $numero_aluno = filter_input(INPUT_POST, 'numero');
+            $bairro_aluno = filter_input(INPUT_POST, 'bairro');
+            $cidade_aluno = filter_input(INPUT_POST, 'cidade');
+            $estado_aluno = filter_input(INPUT_POST, 'estado');
+            $cep_aluno = filter_input(INPUT_POST, 'cep');
+            $complemento_aluno = filter_input(INPUT_POST, 'complemento');
+            
+            $count = cadastrarAluno($matricula_aluno, $cpf_aluno, $nome_aluno,
+                $email_aluno, $logradouro_aluno, $numero_aluno, $bairro_aluno,
+                $cidade_aluno, $estado_aluno, $cep_aluno, $complemento_aluno);
+            
+            if($count > 0){
+                $message = 'Aluno cadastrado com sucesso!';
+            }else{
+                $message = 'Não foi possível cadastrar o aluno!';
+            }
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            include('view/formCadastrarAluno.php');
+
+            break;
+
         default: 
             include('view/formLog.php');
     } 
