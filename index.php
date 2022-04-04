@@ -43,7 +43,7 @@
     }
    // echo $action; mostrar a variavel action
     echo "<br>";
-    echo $action;
+   // echo $action;
     
     switch($action) {
 
