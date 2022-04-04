@@ -14,7 +14,7 @@ include("../model/libra_db.php");
 //form para atualizar um livro por codigo
 -->
 
-<form action="#" method="post">
+<form action="./atualizarLivro.php" method="post">
     <input type="hidden" name="action" value="atualizarLivro">
     <input type="number" name="codigo" value="codigo">
     <input type="text"  name="autor" value="autor"  />
@@ -32,7 +32,13 @@ if (isset($_POST['action']) && $_POST['action'] == 'atualizarLivro') {
     $autor = $_POST['autor'];
     $titulo = $_POST['titulo'];
     $stats = $_POST['stats'];
-    atualizarLivro($codigo, $autor, $titulo, $stats);
+    $result =  atualizarLivro($codigo, $autor, $titulo, $stats);
+    //echo $result;
+    if ($result === TRUE) {
+        echo "Livro atualizado com sucesso!";
+    } else {
+        echo "Erro ao atualizar o livro!";
+    }
 }
 
 include('listarLivros.php');

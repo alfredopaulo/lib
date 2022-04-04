@@ -181,6 +181,10 @@ function atualizarLivro($id, $titulo, $autor, $stats){
     $statement->bindValue(':stats', $stats);
     $statement->bindValue(':id', $id);
     $count = $statement->execute();
+    //verificar se ocorreu algum erro
+
+
+
     $statement->closeCursor();
 
     return $count;
@@ -253,7 +257,10 @@ function totalAutores(){
 function pesquisarLivro($pesquisa){
     global $db;
     $count = 0;
-    $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa";
+    
+
+    $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa UNION SELECT * FROM livros WHERE autor LIKE :pesquisa";
+   // $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa";
     $statement = $db->prepare($query);
     $statement->bindValue(':pesquisa', '%'.$pesquisa.'%');
     if ($statement->execute()) {
@@ -271,7 +278,8 @@ function pesquisarLivro($pesquisa){
     echo "</tr>";
 
     //mostrar todos os livros em uma tabela
-    $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa";
+    $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa UNION SELECT * FROM livros WHERE autor LIKE :pesquisa";
+   // $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa";
     $statement = $db->prepare($query);
     $statement->bindValue(':pesquisa', '%'.$pesquisa.'%');
     if ($statement->execute()) {
@@ -288,6 +296,8 @@ function pesquisarLivro($pesquisa){
     return $count;
 
 }
+
+
     
 
 
