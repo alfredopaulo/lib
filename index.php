@@ -205,6 +205,13 @@
             include('view/formCadastrarEmprestimo.php');
 
             break;
+        
+        case 'listar_emprestimos':
+
+            //botao para voltar uma pagina anterior
+            echo "<input type='button' value='voltar' onclick='history.go(-1)'>";
+            listarEmprestimos();
+        break;
 
         default: 
             include('view/formLog.php');

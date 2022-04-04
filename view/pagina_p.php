@@ -35,6 +35,10 @@
     <input type="submit" value="listarLivros" />
 </form>
 
+<form action="." method="post">
+    <input type="hidden" name="action" value="listar_emprestimos">
+    <input type="submit" value="listar Emprestimos" />
+</form>
 
 
 
