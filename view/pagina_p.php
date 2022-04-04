@@ -23,6 +23,9 @@
 <br>
 <a href="./view/pesquisarLivro.php"> Pesquisar Livro</a>
 
+<br>
+<a href="./view/formCadastrarAluno.php">Cadastrar Aluno</a>
+<br>
 
 <form action="." method="post">
     <input type="hidden" name="action" value="listarLivros">
