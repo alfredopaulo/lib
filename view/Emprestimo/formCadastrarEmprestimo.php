@@ -21,5 +21,5 @@
     </form>
 </html>
 
-<?php include('status.php') ?>
-<?php include('footer.php') ?>
+
+<?php  include('../footer.php') ?>

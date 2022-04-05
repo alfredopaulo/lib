@@ -24,7 +24,8 @@ include("../../model/Livro.php");
             excluirLivro($codigo);
         }
 
-        include('listarLivros.php');
+        //include('../model/Livro.php');
+        listarLivros();
 
     ?>
 
