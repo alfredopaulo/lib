@@ -1,8 +1,9 @@
+
 <html>
-    <form action="../index.php" method="post">
+    <form action="../../index.php" method="post">
         <fieldset>
             <legend>Cadastrar Emprestimo</legend>
-            <input type="hidden" name="action" value="cadastrar_emprestimo">
+            <input type="hidden" name="action" value="cadastrarEmprestimo">
 
             <label for="id_aluno">Aluno</label>
             <input type="text" id="id_aluno" name="id_aluno" value=""/>
