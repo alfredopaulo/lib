@@ -20,6 +20,10 @@
 
 <br>
 
+<a href="./view/Aluno/formAlterarAluno.php">Atualizar Aluno</a>
+
+<br>
+
 <a href="./view/atualizarLivro.php">Atualizar Livro</a>
 
 <br>

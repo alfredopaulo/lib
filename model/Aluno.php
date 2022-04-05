@@ -41,4 +41,37 @@
         return $count;
     }
 
+    function atualizarAluno($id, $matricula, $cpf, $nome, $email, $logradouro, $numero, 
+            $bairro, $cidade, $estado, $cep, $complemento){
+        global $db;
+        
+        $count = 0;
+        $query = "UPDATE aluno SET matricula = :matricula, cpf = :cpf, nome = :nome,
+                    email = :email, logradouro = :logradouro, numero = :numero,
+                    bairro = :bairro, cidade = :cidade, estado = :estado, cep = :cep,
+                    complemento = :complemento
+                    WHERE id = :id";
+
+        $statement = $db->prepare($query);
+
+        $statement->bindValue(':matricula', $matricula);
+        $statement->bindValue(':cpf', $cpf);
+        $statement->bindValue(':nome', $nome);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':logradouro', $logradouro);
+        $statement->bindValue(':numero', $numero);
+        $statement->bindValue(':bairro', $bairro);
+        $statement->bindValue(':cidade', $cidade);
+        $statement->bindValue(':estado', $estado);
+        $statement->bindValue(':cep', $cep);
+        $statement->bindValue(':complemento', $complemento);
+        $statement->bindValue(':id', $id);
+
+        $count = $statement->execute();
+        
+        $statement->closeCursor();
+
+        return $count;
+    }
+
 ?>
