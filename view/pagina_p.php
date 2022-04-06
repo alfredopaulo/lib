@@ -40,6 +40,10 @@
 
 <br>
 
+<a href="./view/Aluno/listarAlunos.php">Listar Alunos</a>
+
+<br>
+
 <form action="." method="post">
     <input type="hidden" name="action" value="listarLivros">
     <input type="submit" value="listarLivros" />

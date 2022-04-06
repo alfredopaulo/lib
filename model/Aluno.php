@@ -74,4 +74,14 @@
         return $count;
     }
 
+    function listarAlunos(){
+        global $db;
+
+        $query = "SELECT * FROM aluno";
+        $result = $db->query($query);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        
+        return $result;
+    }
+
 ?>
