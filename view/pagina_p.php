@@ -44,6 +44,10 @@
 
 <br>
 
+<a href="./view/Aluno/pesquisarAluno.php">Pesquisar Aluno</a>
+
+<br>
+
 <a href="./view/Aluno/listarAlunos.php">Listar Alunos</a>
 
 <br>

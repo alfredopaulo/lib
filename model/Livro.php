@@ -46,17 +46,7 @@
 
     function pesquisarLivro($pesquisa){
         global $db;
-        $count = 0;
-        $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa";
-        $statement = $db->prepare($query);
-        $statement->bindValue(':pesquisa', '%'.$pesquisa.'%');
-        if ($statement->execute()) {
-            $count = $statement->fetchColumn();
-        };
-        $statement->closeCursor();
-
-        //mostrar os livros que foram encontrados
-        echo "<h1>Total de livros encontrados: $count</h1>";
+        
         echo "<table border='1'>";
         echo "<tr>";
         echo "<th>Titulo</th>";
@@ -80,7 +70,7 @@
             echo "</tr>";
         }
         
-        return $count;
+        return 0;
     }
 
     function excluirLivro($id){

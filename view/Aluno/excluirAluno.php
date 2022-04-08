@@ -15,7 +15,7 @@
 
         if (isset($_POST['action']) && $_POST['action'] == 'excluirAluno') {
             $codigo = $_POST['codigo'];
-            excluirAluno($codigo);
+            desativarAluno($codigo);
         }
 
         include_once('../Aluno/listarAlunos.php')

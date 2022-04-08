@@ -1,5 +1,7 @@
 <?php
 
+use LDAP\Result;
+
     function cadastrarAluno($matricula, $cpf, $nome, $email, $logradouro, $numero, 
             $bairro, $cidade, $estado, $cep, $complemento){
 
@@ -84,7 +86,7 @@
         return $result;
     }
 
-    function excluirAluno($id){
+    function desativarAluno($id){
         global $db;
 
         $count = 0;
@@ -99,6 +101,23 @@
         $statement->closeCursor();
 
         return $count;
+    }
+
+    function pesquisarAluno($matricula){
+        global $db;
+
+        $query = "SELECT * FROM aluno WHERE status_aluno = 1 AND matricula = :matricula";
+
+        $statement = $db->prepare($query);
+
+        $statement->bindValue(':matricula', $matricula);
+
+        if ($statement->execute()) {
+            $result = $statement->fetchAll();
+        };
+        $statement->closeCursor();
+
+        return $result;
     }
 
 ?>
