@@ -77,11 +77,28 @@
     function listarAlunos(){
         global $db;
 
-        $query = "SELECT * FROM aluno";
+        $query = "SELECT * FROM aluno WHERE status_aluno = 1";
         $result = $db->query($query);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         
         return $result;
+    }
+
+    function excluirAluno($id){
+        global $db;
+
+        $count = 0;
+        $query = "UPDATE aluno SET status_aluno = 0
+                  WHERE id = :id";
+        
+        $statement = $db->prepare($query);
+
+        $statement->bindValue(':id', $id);
+        
+        $count = $statement->execute();
+        $statement->closeCursor();
+
+        return $count;
     }
 
 ?>

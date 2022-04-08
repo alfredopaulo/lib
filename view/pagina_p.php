@@ -40,6 +40,10 @@
 
 <br>
 
+<a href="./view/Aluno/excluirAluno.php">Excluir Aluno</a>
+
+<br>
+
 <a href="./view/Aluno/listarAlunos.php">Listar Alunos</a>
 
 <br>

@@ -1,24 +1,26 @@
 
+<table border='1'>
+<tr>
+<th>Código</th>
+<th>Matricula</th>
+<th>CPF</th>
+<th>Nome</th>
+<th>Email</th>
+<th>Logradouro</th>
+<th>Numero</th>
+<th>Bairro</th>
+<th>Cidade</th>
+<th>Estado</th>
+<th>CEP</th>
+<th>Complemento</th>
+
+<TR>
+
 <?php
-    include('../../model/database.php');
-    include('../../model/Aluno.php');
+    include_once('../../model/database.php');
+    include_once('../../model/Aluno.php');
 
     $result = listarAlunos();
-
-    echo "<table border='1'>";
-    echo "<tr>";
-    echo "<th>Código</th>";
-    echo "<th>Matricula</th>";
-    echo "<th>CPF</th>";
-    echo "<th>Nome</th>";
-    echo "<th>Email</th>";
-    echo "<th>Logradouro</th>";
-    echo "<th>Numero</th>";
-    echo "<th>Bairro</th>";
-    echo "<th>Cidade</th>";
-    echo "<th>Estado</th>";
-    echo "<th>CEP</th>";
-    echo "<th>Complemento</th>";
 
     // mostrar os livros no html
     $livros = array();
@@ -42,9 +44,9 @@
         echo "<TD>".$row['estado']."</TD>";
         echo "<TD>".$row['cep']."</TD>";
         echo "<TD>".$row['complemento']."</TD>";
-        echo "</TR>";
     }
 
     echo('<input type="button" value="Voltar" onclick="history.go(-1)">');
 
 ?>
+</TR>
