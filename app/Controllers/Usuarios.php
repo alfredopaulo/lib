@@ -8,6 +8,7 @@ class Usuarios extends Controller{
     public function __construct()
     {
         $this->usuarioModel = $this->model('Usuario');
+      //  $this->livroModel = $this->model('Livro');
     }
 
     public function cadastrar(){
@@ -152,61 +153,6 @@ class Usuarios extends Controller{
             $this->view('usuarios/login',$dados);
         }
 
-        public function cadastrarLivro(){
-
-            $formulario = filter_input_array(INPUT_POST);
-
-            if(isset($formulario)){
-                // echo 'clicou';
-                // echo $_POST['email'];
-
-                $dados = [
-                    'titulo' => trim($formulario['titulo']),
-                    'autor' => trim($formulario['autor']),
-                    'stats' => trim($formulario['stats']),
-                ];
-
-                if(empty($formulario['titulo'])){
-                    $dados['titulo_erro'] = 'Preencha o campo titulo';
-                }
-
-                if(empty($formulario['autor'])){
-                    $dados['autor_erro'] = 'Preencha o campo autor';
-                }
-
-                if(empty($formulario['status'])){
-                    $dados['status_erro'] = 'Preencha o campo status';
-                }
-
-
-                
-
-                if(!in_array("",$formulario)){
-                    if($this->usuarioModel->cadastrarLivro($dados)){
-                       // Sessao::mensagem('livro','Livro inserido com sucesso !','alert alert-danger');
-                       echo "<p>Livro inserido com sucesso !</p>";
-                    }else{
-                      
-                        //Sessao::mensagem('livro','Erro ao cadastrar !','alert alert-danger');
-                        echo "<p>Livro inserido com sucesso !</p>";
-                    }
-                    //echo "Dados ok";
-                }
-
-               
-            }else{
-                $dados = [
-
-                    'titulo' => '',
-                    'autor' => '',
-                    'stats' => '',
-
-                ];
-            }
-
-           // echo "oi";
-            $this->view('usuarios/cadastrarLivro',$dados);
-        }
 
 
         private function CriarSessaoUsuario($usuario){

@@ -22,7 +22,7 @@
             $dados = [
                 'tituloPagina' => 'Cadastrar Livro'
             ];
-            $this->view('usuarios/cadrastrarLivro', $dados);
+            $this->view('livros/cadastrarLivro', $dados);
         }
 
     }

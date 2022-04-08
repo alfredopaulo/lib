@@ -10,7 +10,7 @@
 
 
 ?>
-    <form action="<?= URL ?>/usuarios/cadastrarLivro" method="POST">
+    <form action="<?= URL ?>/livros/cadastrarLivro" method="POST">
         <fieldset>
             <legend>Cadastrar livro</legend>
             
