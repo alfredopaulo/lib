@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
 
     <form action="../../index.php" method="post">
         <fieldset>
@@ -53,6 +53,122 @@
             <input type="button" value="Voltar" onclick="history.go(-1)">
         </fieldset>
     </form>
+</html> -->
+
+<?php include('../footer.php') ?>
+
+<!DOCTYPE html>
+
+<head>
+
+<link rel="stylesheet" href="/libra/view/styles.css">
+
+  <title>Cadastrar</title>
+
+</head>
+
+<body>
+  <div id="cadastrar">
+
+    <form class="card" action="../../index.php" method="post">
+
+      <div class="card-header">
+
+        <h2>Fazer Cadastro</h2>
+
+      </div>
+
+      <div class="card-content">
+       <label for="nome">Nome:</label>
+        <input type="hidden" name="action" value="cadastrarUsuario">
+
+        <div class="card-content-area">
+        
+          <input type="text" id="nome" name="nome" autocomplete="off" placeholder="Nome">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="usuario" name="usuario" autocomplete="off" placeholder="Usuario">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="senha" name="senha" autocomplete="off" placeholder="Senha">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="email" name="email" autocomplete="off" placeholder="Email">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="logradouro" name="logradouro" autocomplete="off" placeholder="Lagradouro">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="numero" name="numero" autocomplete="off" placeholder="Número">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="complemento" name="complemento" autocomplete="off" placeholder="Complemento">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="bairro" name="complemento" autocomplete="off" placeholder="Bairro">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="cidade" autocomplete="off" placeholder="Cidade">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="cep" autocomplete="off" placeholder="Cep">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="cpf" autocomplete="off" placeholder="CPF">
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="text" id="nivel" name="nivel" autocomplete="off" placeholder="Nível">
+
+        </div>
+
+      </div>
+
+      <div class="card-footer">
+
+        <input type="submit" value="cadastrar">
+        <input type="button" value="Voltar" onclick="history.go(-1)">
+
+      </div>
+
+    </form>
+
+  </div>
+
+</body>
+
 </html>
 
 <?php include('../footer.php') ?>

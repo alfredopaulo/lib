@@ -1,27 +1,58 @@
 
-<form action="." method="post">
-    <fieldset>
-        
-        <legend>Login</legend>
-        
-        <input type="hidden" name="action" value="login">
-        
-        <label for="usuario">Usuário:</label>
-        <input type="text" id="usuario" name="usuario" value="" />
-        
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" value="" />
-        
-        <input type="submit" value="login" />
-        <input  type="reset" value="Limpar" />
+<!DOCTYPE html>
 
-        <?php
+<head>
 
-        //se a global de erro nao estiver vazia mostra a mensagem de erro
+  <link rel="stylesheet" href="/libra/view/styles.css">
+
+  <title>Login</title>
+
+</head>
+
+<body>
+  <div id="login">
+    <form class="card" action="." method="post">
+
+      <div class="card-header">
+
+        <h2>Fazer Login</h2>
+
+      </div>
+
+      <div class="card-content">
+
+        <div class="card-content-area">
+
+          <input type="hidden" name="action" value="login">
+          <input type="text" id="usuario" name="usuario" placeholder="Usuario" />
+
+        </div>
+
+        <div class="card-content-area">
+
+          <input type="password" id="senha" name="senha" autocomplete="off" placeholder="Senha" />
+
+        </div>
+
+      </div>
+      
+      <div class="card-footer">
+
+        <input type="submit" value="Entrar" class="submit">
+
+      </div>
+      <?php
+
+      //se a global de erro nao estiver vazia mostra a mensagem de erro
         if ($GLOBALS["error"] != "") {
             echo '<p>'.$GLOBALS["error"] .'</p>';
         }
 
-        ?>
-    </fieldset>
-</form>
+      ?>
+    </form>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 50px;
+  background-image: url("https://media.discordapp.net/attachments/766043578110836786/961371569882562610/biblioteca.jpg?width=1178&height=662");
+}
+
+#login {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vt;
+}
+
+#cadastrar {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vt;
+}
+
+.card {
+  background-color: rgba(19, 19, 19, 0.8);
+  padding: 40px;
+  border-radius: 10px;
+  width: 500px;
+}
+
+.card-header {
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.card-content-area {
+  padding: 10px;
+}
+
+.card-content-area input {
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #272323;
+  border-radius: 10px;
+  border-style: none;
+  color: #ffffff;
+  font-size: 90%;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+::placeholder {
+  color: #c0c0c0;
+}
+
+.card-footer {
+  padding: 15px;
+  width: 100%;
+  background-color: #b61d1d;
+  border-radius: 10px;
+  margin: 10px 0;
+  color: #ffffff;
+  font-size: 90%;
+  border-style: none;
+}
+
+.m.card-content-area {
+  display: flex;
+  flex-direction: row;
+}
+
+p {
+  margin-top: 20px;
+  color: #b61d1d;
+  text-align: center;
+  font-size: 20px;
+}
