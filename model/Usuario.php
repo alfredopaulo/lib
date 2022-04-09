@@ -47,7 +47,7 @@
     function getNivel($usuario){
         global $db; 
         $nivel = 0;
-        $query = "SELECT nivel FROM usuarios WHERE usuario = :usuario";
+        $query = "SELECT nivel FROM usuario WHERE usuario = :usuario";
 
         $statement = $db->prepare($query);
         $statement->bindValue(':usuario', $usuario);
@@ -62,7 +62,7 @@
     function getNome($usuario){
         global $db; 
         $nome = 0;
-        $query = "SELECT nome FROM usuarios WHERE usuario = :usuario";
+        $query = "SELECT nome FROM usuario WHERE usuario = :usuario";
 
         $statement = $db->prepare($query);
         $statement->bindValue(':usuario', $usuario);
@@ -76,7 +76,7 @@
     function getId($usuario){
         global $db; 
         $id = 0;
-        $query = "SELECT id FROM usuarios WHERE usuario = :usuario";
+        $query = "SELECT id FROM usuario WHERE usuario = :usuario";
 
         $statement = $db->prepare($query);
         $statement->bindValue(':usuario', $usuario);
