@@ -122,6 +122,21 @@
 
             include('view/Livro/formCadastrarLivro.php');
         break;
+
+        case 'alterarAluno':
+            $id = filter_input(INPUT_POST, 'id');
+            $cpf_aluno = filter_input(INPUT_POST, 'cpf');
+            $matricula_aluno = filter_input(INPUT_POST, 'matricula');
+            $nome_aluno = filter_input(INPUT_POST, 'nome');
+            $email_aluno = filter_input(INPUT_POST, "email");
+            $telefone_aluno = filter_input(INPUT_POST, 'telefone');
+            $endereco_aluno = filter_input(INPUT_POST, 'endereco');
+
+            atualizarAluno($id, $cpf_aluno, $matricula_aluno, $nome_aluno,
+                $email_aluno, $telefone_aluno, $endereco_aluno);
+            
+            include_once('view/Aluno/formAlterarAluno.php');
+        break;
         
         case 'listarLivros':
             //botao para voltar uma pagina anterior

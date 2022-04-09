@@ -36,30 +36,22 @@ use LDAP\Result;
         return $count;
     }
 
-    function atualizarAluno($id, $matricula, $cpf, $nome, $email, $logradouro, $numero, 
-            $bairro, $cidade, $estado, $cep, $complemento){
+    function atualizarAluno($id, $cpf, $matricula, $nome, $email, $telefone, $endereco){
         global $db;
         
         $count = 0;
-        $query = "UPDATE aluno SET matricula = :matricula, cpf = :cpf, nome = :nome,
-                    email = :email, logradouro = :logradouro, numero = :numero,
-                    bairro = :bairro, cidade = :cidade, estado = :estado, cep = :cep,
-                    complemento = :complemento
+        $query = "UPDATE aluno SET cpf = :cpf, matricula = :matricula, nome = :nome,
+                    email = :email, telefone = :telefone, endereco = :endereco
                     WHERE id = :id";
 
         $statement = $db->prepare($query);
 
-        $statement->bindValue(':matricula', $matricula);
         $statement->bindValue(':cpf', $cpf);
+        $statement->bindValue(':matricula', $matricula);
         $statement->bindValue(':nome', $nome);
         $statement->bindValue(':email', $email);
-        $statement->bindValue(':logradouro', $logradouro);
-        $statement->bindValue(':numero', $numero);
-        $statement->bindValue(':bairro', $bairro);
-        $statement->bindValue(':cidade', $cidade);
-        $statement->bindValue(':estado', $estado);
-        $statement->bindValue(':cep', $cep);
-        $statement->bindValue(':complemento', $complemento);
+        $statement->bindValue(':telefone', $telefone);
+        $statement->bindValue(':endereco', $endereco);
         $statement->bindValue(':id', $id);
 
         $count = $statement->execute();
