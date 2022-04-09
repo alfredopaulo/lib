@@ -4,7 +4,7 @@
         global $db; 
         $count = 0;
     
-        $query = "SELECT * FROM usuarios WHERE usuario = :usuario AND senha = :senha";
+        $query = "SELECT * FROM usuario WHERE usuario = :usuario AND senha = :senha";
 
         $statement = $db->prepare($query);
         $statement->bindValue(':usuario', $usuario);
