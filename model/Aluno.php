@@ -91,7 +91,7 @@ use LDAP\Result;
     function pesquisarAluno($matricula){
         global $db;
 
-        $query = "SELECT * FROM aluno WHERE status_aluno = 1 AND matricula = :matricula";
+        $query = "SELECT * FROM aluno WHERE status_ativo = 1 AND matricula = :matricula";
 
         $statement = $db->prepare($query);
 
