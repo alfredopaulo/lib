@@ -2,31 +2,24 @@
 
 use LDAP\Result;
 
-    function cadastrarAluno($matricula, $cpf, $nome, $email, $logradouro, $numero, 
-            $bairro, $cidade, $estado, $cep, $complemento){
+    function cadastrarAluno($cpf, $matricula, $nome, $email, $telefone, $endereco){
 
         global $db;
 
         $count = 0;
     
-        $query = "INSERT INTO aluno (matricula, cpf, nome, email, logradouro,
-                        numero, bairro, cidade, estado, cep, complemento, status_aluno)
-                VALUES (:matricula, :cpf, :nome, :email, :logradouro, :numero, 
-                        :bairro, :cidade, :estado, :cep, :complemento, 1)";
+        $query = "INSERT INTO aluno (cpf, matricula, nome, email, telefone, endereco,
+                    status_pendencia, status_ativo)
+                VALUES (:cpf, :matricula, :nome, :email, :telefone, :endereco, 0, 1)";
 
         $statement = $db->prepare($query);
 
-        $statement->bindValue(':matricula', $matricula);
         $statement->bindValue(':cpf', $cpf);
+        $statement->bindValue(':matricula', $matricula);
         $statement->bindValue(':nome', $nome);
         $statement->bindValue(':email', $email);
-        $statement->bindValue(':logradouro', $logradouro);
-        $statement->bindValue(':numero', $numero);
-        $statement->bindValue(':bairro', $bairro);
-        $statement->bindValue(':cidade', $cidade);
-        $statement->bindValue(':estado', $estado);
-        $statement->bindValue(':cep', $cep);
-        $statement->bindValue(':complemento', $complemento);
+        $statement->bindValue(':telefone', $telefone);
+        $statement->bindValue(':endereco', $endereco);
 
         $count = $statement->execute();
 

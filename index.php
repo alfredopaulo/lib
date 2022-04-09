@@ -1,10 +1,10 @@
 <?php 
-    require('model/database.php'); 
-    require('model/Autenticacao.php');
-    require('model/Usuario.php');
-    require('model/Livro.php');
-    require('model/Aluno.php');
-    require('model/Emprestimo.php');
+    require_once('model/database.php'); 
+    require_once('model/Autenticacao.php');
+    require_once('model/Usuario.php');
+    require_once('model/Livro.php');
+    require_once('model/Aluno.php');
+    require_once('model/Emprestimo.php');
 
     $action = filter_input(INPUT_POST, 'action');
 
@@ -86,21 +86,15 @@
         break;
 
         case 'cadastrarAluno':
-            $matricula_aluno = filter_input(INPUT_POST, 'matricula');
             $cpf_aluno = filter_input(INPUT_POST, 'cpf');
+            $matricula_aluno = filter_input(INPUT_POST, 'matricula');
             $nome_aluno = filter_input(INPUT_POST, 'nome');
             $email_aluno = filter_input(INPUT_POST, "email");
-            $logradouro_aluno = filter_input(INPUT_POST, 'logradouro');
-            $numero_aluno = filter_input(INPUT_POST, 'numero');
-            $bairro_aluno = filter_input(INPUT_POST, 'bairro');
-            $cidade_aluno = filter_input(INPUT_POST, 'cidade');
-            $estado_aluno = filter_input(INPUT_POST, 'estado');
-            $cep_aluno = filter_input(INPUT_POST, 'cep');
-            $complemento_aluno = filter_input(INPUT_POST, 'complemento');
+            $telefone_aluno = filter_input(INPUT_POST, 'telefone');
+            $endereco_aluno = filter_input(INPUT_POST, 'endereco');
             
-            $count = cadastrarAluno($matricula_aluno, $cpf_aluno, $nome_aluno,
-                $email_aluno, $logradouro_aluno, $numero_aluno, $bairro_aluno,
-                $cidade_aluno, $estado_aluno, $cep_aluno, $complemento_aluno);
+            $count = cadastrarAluno($cpf_aluno, $matricula_aluno, $nome_aluno,
+                $email_aluno, $telefone_aluno, $endereco_aluno);
             
             if($count > 0){
                 $message = 'Aluno cadastrado com sucesso!';
