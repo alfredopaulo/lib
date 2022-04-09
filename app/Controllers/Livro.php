@@ -5,15 +5,16 @@ class Livro extends Controller{
 
     public function __construct()
     {
-        $this->usuarioModel = $this->model('Livro');
+        $this->livrosModel = $this->model('Livro');
     }
 
     public function cadastrarLivro(){
+        var_dump($_POST);
 
         $formulario = filter_input_array(INPUT_POST);
 
         if(isset($formulario)){
-            // echo 'clicou';
+            echo 'clicou';
             // echo $_POST['email'];
 
             $dados = [
@@ -38,7 +39,7 @@ class Livro extends Controller{
             
 
             if(!in_array("",$formulario)){
-                if($this->usuarioModel->cadastrarLivro($dados)){
+                if($this->livrosModel->cadastrarLivro($dados)){
                    // Sessao::mensagem('livro','Livro inserido com sucesso !','alert alert-danger');
                    echo "<p>Livro inserido com sucesso !</p>";
                 }else{
@@ -60,8 +61,8 @@ class Livro extends Controller{
             ];
         }
 
-       // echo "oi";
-        $this->view('usuarios/cadastrarLivro',$dados);
+       echo "oi";
+        $this->view('livros/cadastrarLivro',$dados);
     }
 
 

@@ -8,7 +8,7 @@ class Usuarios extends Controller{
     public function __construct()
     {
         $this->usuarioModel = $this->model('Usuario');
-      //  $this->livroModel = $this->model('Livro');
+       //$this->livroModel = $this->model('Livro');
     }
 
     public function cadastrar(){

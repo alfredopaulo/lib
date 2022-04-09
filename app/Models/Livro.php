@@ -11,8 +11,8 @@ class Livro{
     }
 
     public function cadastrarLivro($dados){
-        $this->pdo->query("INSERT INTO livros (titulo, autor, stats)
-VALUES (:titulo, :autor, :stats)");
+            $this->pdo->query("INSERT INTO livros (titulo, autor, stats)
+    VALUES (:titulo, :autor, :stats)");
 
             
             

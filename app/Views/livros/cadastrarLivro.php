@@ -10,7 +10,7 @@
 
 
 ?>
-    <form action="<?= URL ?>/livros/cadastrarLivro" method="POST">
+    <form name="cadastrarLivro" action="<?= URL ?>/livros/cadastrarLivro" method="POST" enctype="multipart/form-data">
         <fieldset>
             <legend>Cadastrar livro</legend>
             
@@ -25,9 +25,14 @@
             <label for="status">Status:</label>
             <input type="text" id="status" name="stats" value="" />
             
-            <input type="submit" value="cadastrar" onclick="history.go(-1)"/>
+            <input type="submit" value="cadastrarLivro"/>
             <input  type="reset" value="Limpar" />
-            <input type="button" value="Voltar" onclick="history.go(-1)">
+            <?php
+             echo "<a href='".URL. "/paginas/home'>Voltar 2</a>";
+
+            ?>
+
+
         </fieldset>
     </form>
 </html>
