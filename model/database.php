@@ -1,5 +1,5 @@
 <?php 
-    $dsn = 'mysql:host=localhost;dbname=integracao';
+    $dsn = 'mysql:host=localhost;dbname=db_biblioteca';
     $username = 'root';
     //$password = 'pa55word';
 
