@@ -75,7 +75,7 @@ use LDAP\Result;
         global $db;
 
         $count = 0;
-        $query = "UPDATE aluno SET status_aluno = 0
+        $query = "UPDATE aluno SET status_ativo = 0
                   WHERE id = :id";
         
         $statement = $db->prepare($query);

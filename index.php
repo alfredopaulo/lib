@@ -155,6 +155,15 @@
             echo $message;
         break;
 
+        case 'excluirAluno':
+            $id = filter_input(INPUT_POST, 'id');
+            $codigo = $_POST['codigo'];
+            desativarAluno($codigo);
+            include_once('view/Aluno/excluirAluno.php');
+            include_once('view/Aluno/listarAlunos.php');
+
+        break;
+
         case 'cadastrarEmprestimo':
             $id_aluno_emprestimo = filter_input(INPUT_POST, 'id_aluno');
             $data_emprestimo_emprestimo = filter_input(INPUT_POST, 'data_emprestimo');
