@@ -64,7 +64,7 @@ use LDAP\Result;
     function listarAlunos(){
         global $db;
 
-        $query = "SELECT * FROM aluno WHERE status_aluno = 1";
+        $query = "SELECT * FROM aluno WHERE status_ativo = 1";
         $result = $db->query($query);
         $result->setFetchMode(PDO::FETCH_ASSOC);
         
