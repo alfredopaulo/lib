@@ -1,19 +1,21 @@
 <?php
 
-    function cadastrarLivro($titulo, $autor, $status){
+    function cadastrarLivro($isbn, $nome, $autor, $ano_publicacao){
         global $db;
 
         $count = 0;
-        $query = "INSERT INTO livros (titulo, autor, status)
-                VALUES (:titulo, :autor, :status)";
+        $query = "INSERT INTO livro (isbn, nome, fk_autor, ano_publicacao, status_ativo)
+                VALUES (:isbn, :nome, :fk_autor, :ano_publicacao, 1)";
 
         $statement = $db->prepare($query);
-        $statement->bindValue(':titulo', $titulo);
-        $statement->bindValue(':autor', $autor);
-        $statement->bindValue(':status', $status);
+
+        $statement->bindValue(':isbn', $isbn);
+        $statement->bindValue(':nome', $nome);
+        $statement->bindValue(':fk_autor', $autor);
+        $statement->bindValue(':ano_publicacao', $ano_publicacao);
         $count = $statement->execute();
 
-        $dupesql = "SELECT * FROM livros where (titulo = '$titulo')";
+        $dupesql = "SELECT * FROM livro where (isbn = '$isbn')";
         $duperow = $db->query($dupesql);
         $dupecount = $duperow->rowCount();
         if ($dupecount == 0) {

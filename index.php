@@ -107,18 +107,19 @@
         break;
         
         case 'cadastrarLivro':
-            $titulo = filter_input(INPUT_POST, 'titulo');
-            $autor = filter_input(INPUT_POST, 'autor');
-            $status = filter_input(INPUT_POST, 'status');
+            $isbn = filter_input(INPUT_POST, 'isbn');
+            $nome_livro = filter_input(INPUT_POST, 'nome');
+            $autor_livro = filter_input(INPUT_POST, 'id_autor');
+            $ano_publicacao = filter_input(INPUT_POST, 'ano_publicacao');
 
-            $count = cadastrarLivro($titulo, $autor, $status);
+            $count = cadastrarLivro($isbn, $nome_livro, $autor_livro, $ano_publicacao);
 
             if($count > 0){
                 $error_message  = 'Livro cadastrado com sucesso!';
             }else{
                 $error_message   = 'Não foi possível cadastrar o livro!';
             }
-            echo $error_message;
+            echo "<script type='text/javascript'>alert('$message');</script>";
 
             include('view/Livro/formCadastrarLivro.php');
         break;
