@@ -1,23 +1,58 @@
-<form action="." method="post">
-    <fieldset>
-        <legend>Login</legend>
-        <input type="hidden" name="action" value="login">
-        <label for="usuario">Usuário:</label>
-        <input type="text" id="usuario" name="usuario" value="" />
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" value="" />
-        <input type="submit" value="login" />
-        <input  type="reset" value="Limpar" />
+
+<!DOCTYPE html>
+
+<head>
+
+  <link rel="stylesheet" href="/lib/view/styles/main.css">
+
+  <title>Login</title>
+
+</head>
+
+<body>
+  <section class="login-cadastro">
+
+    <form class="card-login" action="../index.php" method="post">
+
+      <div class="card-header">
+
+        <h2>Fazer Login</h2>
+
+      </div>
+
+      <div class="card-content">
+        
+      <input type="hidden" name="action" value="login">
+
+        <div class="card-login-area">
+
+          <label for="usuario">Usuário</label>
+
+          <input type="text" id="usuario" name="usuario">
 
 
-        <?php
+        </div>
 
-      //se a global de erro nao estiver vazia mostra a mensagem de erro
-        if ($GLOBALS["error"] != "") {
-            echo '<p>'.$GLOBALS["error"] .'</p>';
-        }
+        <div class="card-login-area">
 
-        ?>
+          <label for="password">Senha</label>
 
-    
-    </fieldset>
+          <input type="password" id="senha" name="senha" autocomplete="off">
+
+        </div>
+
+      </div>
+
+      <div class="card-footer">
+
+        <input type="submit" value="Entrar" class="submit">
+
+      </div>
+
+    </form>
+
+  </section>
+
+</body>
+
+</html>
