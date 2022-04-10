@@ -1,12 +1,12 @@
 <?php
 
-    function cadastrarUsuario($nome, $usuario, $senha, $email, $nivel, $ativo,
-            $logradouro, $numero, $complemento, $bairro, $cep, $cidade, $uf, $cpf){
+    function cadastrarUsuario($cpf, $nome, $usuario, $senha, $email, $telefone,
+            $endereco, $nivel){
 
         global $db;
         $count = 0;
     
-        $query = "INSERT INTO usuarios (nome, usuario, senha, email, nivel, 
+        $query = "INSERT INTO usuario (cpf, nome, usuario, senha, email, nivel, 
                         ativo, logradouro, numero, complemento, bairro, cep, cidade, uf, cpf)
                 VALUES (:nome, :usuario, :senha, :email, :nivel, :ativo, :logradouro, 
                         :numero, :complemento, :bairro, :cep, :cidade, :uf, :cpf)";

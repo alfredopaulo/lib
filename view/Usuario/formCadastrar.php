@@ -79,8 +79,13 @@
       </div>
 
       <div class="card-content">
-       <label for="nome">Nome:</label>
         <input type="hidden" name="action" value="cadastrarUsuario">
+        
+        <div class="card-content-area">
+
+          <input type="text" id="cpf" name="cpf" autocomplete="off" placeholder="CPF">
+
+        </div>
 
         <div class="card-content-area">
         
@@ -108,43 +113,7 @@
 
         <div class="card-content-area">
 
-          <input type="text" id="logradouro" name="logradouro" autocomplete="off" placeholder="Lagradouro">
-
-        </div>
-
-        <div class="card-content-area">
-
-          <input type="text" id="numero" name="numero" autocomplete="off" placeholder="Número">
-
-        </div>
-
-        <div class="card-content-area">
-
-          <input type="text" id="complemento" name="complemento" autocomplete="off" placeholder="Complemento">
-
-        </div>
-
-        <div class="card-content-area">
-
-          <input type="text" id="bairro" name="complemento" autocomplete="off" placeholder="Bairro">
-
-        </div>
-
-        <div class="card-content-area">
-
-          <input type="text" id="cidade" autocomplete="off" placeholder="Cidade">
-
-        </div>
-
-        <div class="card-content-area">
-
-          <input type="text" id="cep" autocomplete="off" placeholder="Cep">
-
-        </div>
-
-        <div class="card-content-area">
-
-          <input type="text" id="cpf" autocomplete="off" placeholder="CPF">
+          <input type="text" id="telefone" name="telefone" autocomplete="off" placeholder="Telefone">
 
         </div>
 
