@@ -9,20 +9,7 @@
 </head>
 
 <body>
-  <header>
-    <!-- Centered link -->
-    <div class="centered">
-      <a href="home.html">Lib 3.11</a>
-    </div>
-
-    <!-- Left-aligned links (default) -->
-    <input type="button" value="Voltar" onclick="history.go(-1)">
-
-    <!-- Right-aligned links -->
-    <div class="right">
-      <a href="login.html">Sair</a>
-    </div>
-  </header>
+  <?php include_once('../header.php') ?>
 
   <section class="login-cadastro">
 
@@ -123,10 +110,8 @@
     </form>
 
   </section>
-  <footer>
-    <P>LAWHACK</P>
-    <P>2021-2022</P>
-  </footer>
+
+  <?php include_once('../footer.php') ?>
 
 </body>
 

@@ -4,7 +4,7 @@
 
   <link rel="stylesheet" href="/lib/view/styles/main.css">
 
-  <title>Cadastrar</title>
+  <title>Cadastrar Aluno</title>
 
 </head>
 
