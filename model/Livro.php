@@ -29,17 +29,19 @@
         return $count;
     }
 
-    function atualizarLivro($id, $titulo, $autor, $stats){
+    function atualizarLivro($codigo,$isbn, $nome, $autor, $ano_publicacao){
         global $db;
 
         $count = 0;
-        $query = "UPDATE livros SET titulo = :titulo, autor = :autor, stats = :stats WHERE id = :id";
+        $query = "UPDATE livro SET isbn = :isbn, nome = :nome, fk_autor = :fk_autor, ano_publicacao = :ano_publicacao
+                WHERE id = :codigo";
 
         $statement = $db->prepare($query);
-        $statement->bindValue(':titulo', $titulo);
-        $statement->bindValue(':autor', $autor);
-        $statement->bindValue(':stats', $stats);
-        $statement->bindValue(':id', $id);
+        $statement -> bindValue(':codigo', $codigo);
+        $statement->bindValue(':isbn', $isbn);
+        $statement->bindValue(':nome', $nome);
+        $statement->bindValue(':fk_autor', $autor);
+        $statement->bindValue(':ano_publicacao', $ano_publicacao);
         $count = $statement->execute();
         $statement->closeCursor();
 
@@ -91,28 +93,30 @@
     function listarLivros(){
         global $db;
 
-        $query = "SELECT * FROM livros";
+        $query = "SELECT * FROM livro";
         $result = $db->query($query);
         $result->setFetchMode(PDO::FETCH_ASSOC);
 
         echo "<table border='1'>";
         echo "<tr>";
-        echo "<th>Código</th>";
-        echo "<th>Status</th>";
-        echo "<th>Título</th>";
-        echo "<th>Autor</th>";
+        echo "<th>Id</th>";
+        echo "<th>ISBN</th>";
+        echo "<th>NOME</th>";
+        echo "<th>fk_autor</th>";
+        echo "<th>Ano Publicação</th>";
+        echo "<th>Status Ativo</th>";
 
         //mostrar os livros no html
         $livros = array();
         foreach ($result as $row) {
-            $livros[] = array('id' => $row['id'], 'titulo' => $row['titulo'], 
-                'autor' => $row['autor'], 'status' => $row['status']);
-            echo "<TR>";
-            echo "<TD>".$row['id']."</TD>";
-            echo "<TD>".$row['status']."</TD>";
-            echo "<TD>".$row['titulo']."</TD>";
-            echo "<TD>".$row['autor']."</TD>";
-            echo "</TR>";
+            echo "<tr>";
+            echo "<td>" . $row['id'] . "</td>";
+            echo "<td>" . $row['isbn'] . "</td>";
+            echo "<td>" . $row['nome'] . "</td>";
+            echo "<td>" . $row['fk_autor'] . "</td>";
+            echo "<td>" . $row['ano_publicacao'] . "</td>";
+            echo "<td>" . $row['status_ativo'] . "</td>";
+            echo "</tr>";
         }
 
         return $result;

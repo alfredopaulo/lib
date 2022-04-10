@@ -27,6 +27,11 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `aluno`
 --
 
+
+
+CREATE database IF NOT EXISTS db_biblioteca;
+use db_biblioteca;
+
 CREATE TABLE `aluno` (
   `id` int(11) NOT NULL,
   `cpf` varchar(11) NOT NULL,
