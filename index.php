@@ -55,7 +55,7 @@
 
         case 'sair':
             deslogar();
-            // include('view/formLog.php');
+            include('view/formLog.php');
         break;
 
         case 'cadastrarUsuario':
@@ -64,7 +64,6 @@
             $senha = filter_input(INPUT_POST, 'senha');
             $email = filter_input(INPUT_POST, 'email');
             $nivel = filter_input(INPUT_POST, 'nivel');
-            $ativo = filter_input(INPUT_POST, 'ativo');
             $endereco = filter_input(INPUT_POST, 'endereco');
             $cpf = filter_input(INPUT_POST, 'cpf');
             $telefone = filter_input(INPUT_POST, 'telefone');

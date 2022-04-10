@@ -1,4 +1,4 @@
-<form action="." method="post">
+<!-- <form action="." method="post">
     <input type="hidden" name="action" value="listarLivros">
     <input type="submit" value="listarLivros" />
 </form>
@@ -6,8 +6,14 @@
 <form action="." method="post">
     <input type="hidden" name="action" value="listarEmprestimos">
     <input type="submit" value="listar Emprestimos" />
-</form>
+</form> -->
+<?php
 
+  include_once('../model/Usuario.php');
+
+  $nivel = getNivel($_SESSION['usuario']);
+
+?>
 
 <!DOCTYPE html>
 
@@ -35,6 +41,9 @@
 
 
   <div class="button-main">
+    <?php
+      if($nivel == 0){
+    ?>
     <div class="button">
       <a href="/lib/view/admin.html" title="Biblioteca">
         <img src="/lib/view/styles/icons-images/administrator.png" alt="Biblioteca" width="64" height="64">
@@ -42,6 +51,9 @@
         <p>Admin</p>
       </a>
     </div>
+    <?php
+      }
+    ?>
 
     <!-- <div class="button">
       <a href="" title="Editar Cadastros">
@@ -84,8 +96,5 @@
     </div>
   </div>
 
-  <footer>
-    <P>LAWHACK</P>
-    <P>2021-2022</P>
-  </footer>
+  <?php include_once('./footer.php') ?>
 </body>
