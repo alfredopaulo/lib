@@ -9,7 +9,7 @@
 </form> -->
 <?php
 
-  include_once('../model/Usuario.php');
+  include '/lib/model/Usuario.php';
 
   $nivel = getNivel($_SESSION['usuario']);
 
@@ -96,5 +96,5 @@
     </div>
   </div>
 
-  <?php include_once('./footer.php') ?>
+  <?php include 'footer.php';?>
 </body>
