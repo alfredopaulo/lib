@@ -6,7 +6,7 @@
 
         $count = 0;
     
-        $query = "INSERT INTO emprestimo (id_aluno, data_emprestimo, data_devolucao)
+        $query = "INSERT INTO emprestimo (id, data_emprestimo, data_devolucao)
                 VALUES (:id_aluno, :data_emprestimo, :data_devolucao)";
 
         $statement = $db->prepare($query);
@@ -35,7 +35,7 @@
 
         $query =    "SELECT a.id, a.nome, e.data_emprestimo, e.data_devolucao
                     FROM aluno AS a
-                    INNER JOIN emprestimo AS e ON a.id = e.id_aluno";
+                    INNER JOIN emprestimo AS e ON a.id = e.id";
         $result = $db->query($query);
         $result->setFetchMode(PDO::FETCH_ASSOC);
 

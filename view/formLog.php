@@ -11,7 +11,7 @@
 
 <body>
   <div id="login">
-    <form class="card" action="." method="post">
+    <form class="card" action="../index.php" method="post">
 
       <div class="card-header">
 
@@ -43,10 +43,7 @@
       </div>
       <?php
 
-      //se a global de erro nao estiver vazia mostra a mensagem de erro
-        if ($GLOBALS["error"] != "") {
-            echo '<p>'.$GLOBALS["error"] .'</p>';
-        }
+
 
       ?>
     </form>

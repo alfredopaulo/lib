@@ -1,6 +1,12 @@
 
+
 <br>
-<a href="/libra/">login</a>
+
+
+
+<a href="/suna/">Voltar</a>
+
+
 
 <br>
 
@@ -60,4 +66,8 @@
 <form action="." method="post">
     <input type="hidden" name="action" value="listarEmprestimos">
     <input type="submit" value="listar Emprestimos" />
+</form>
+<form action="." method="post">
+    <input type="hidden" name="action" value="sair">
+    <input type="submit" value="sair" />
 </form>

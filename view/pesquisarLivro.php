@@ -5,6 +5,12 @@
     include("../model/Livro.php");
     
 ?>
+<?php
+
+include('../verifica_logado.php');
+
+?>
+
 
 <input type="button" value="Voltar" onclick="history.go(-1)">
 

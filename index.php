@@ -28,8 +28,9 @@
             if (!empty($usuario) && !empty($senha)) {
                 $count = login($usuario, $senha);
                 if ($count > 0) {   
+                  //  session_start();
                     $_SESSION['usuario'] = $usuario;
-
+                    
                     $message = 'Usuário logado com sucesso!';
                     //funcao para pegar o nivel do usuario
                     $nivel = getNivel($usuario);
@@ -52,7 +53,7 @@
             }
         break;
 
-        case 'deslogar':
+        case 'sair':
             deslogar();
             // include('view/formLog.php');
         break;
@@ -190,7 +191,7 @@
         break;
 
         default: 
-            include('view/formLog.php');
+            header('Location: ./view/formLog.php');
     } 
 
 ?>

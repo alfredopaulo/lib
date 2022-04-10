@@ -18,8 +18,9 @@
     }
 
     function deslogar(){
+        session_start();
         session_destroy();
-        header("Location:/libra/");
+        header("Location:/suna/");
     }
 
 ?>

@@ -127,7 +127,7 @@
         global $db;
 
         $count = 0;
-        $query = "SELECT COUNT(*) FROM livros WHERE autor = :autor";
+        $query = "SELECT COUNT(*) FROM livro WHERE autor = :autor";
         $statement = $db->prepare($query);
         $statement->bindValue(':autor', $autor);
         if ($statement->execute()) {
@@ -146,7 +146,7 @@
         global $db;
 
         $count = 0;
-        $query = "SELECT autor, COUNT(autor) FROM livros group by autor";
+        $query = "SELECT fk_autor, COUNT(fk_autor) FROM livro group by fk_autor";
         $statement = $db->prepare($query);
         if ($statement->execute()) {
             $count = $statement->fetchColumn();
@@ -161,7 +161,7 @@
         echo "<th>Quantidade de livros</th>";
         echo "</tr>";
 
-        $query = "SELECT autor, COUNT(autor) FROM livros group by autor";
+        $query = "SELECT fk_autor, COUNT(fk_autor) FROM livro group by fk_autor";
         $statement = $db->prepare($query);
         if ($statement->execute()) {
             $result = $statement->fetchAll();
@@ -170,8 +170,8 @@
 
         foreach ($result as $row) {
             echo "<tr>";
-            echo "<td>" . $row['autor'] . "</td>";
-            echo "<td>" . $row['COUNT(autor)'] . "</td>";
+            echo "<td>" . $row['fk_autor'] . "</td>";
+            echo "<td>" . $row['COUNT(fk_autor)'] . "</td>";
             echo "</tr>";
         }
 
