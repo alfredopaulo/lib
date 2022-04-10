@@ -1,16 +1,17 @@
 <?php
 
-    function cadastrarUsuario($nome, $usuario, $senha, $email, $nivel, $cpf, $endereco, $telefone){
+    function cadastrarUsuario($cpf, $nome, $usuario, $senha, $email, $telefone, $endereco, $nivel){
 
         global $db;
         $count = 0;
     
-        $query = "INSERT INTO usuario (nome, usuario, senha, email, nivel, 
-                        endereco,cpf,telefone, status_ativo)
-                VALUES (:nome, :usuario, :senha, :email, :nivel, :endereco, :cpf, :telefone, 1)";
+        $query = "INSERT INTO usuario (cpf, nome, usuario, senha, email, telefone, 
+                        endereco, nivel, status_ativo)
+                VALUES (:cpf, :nome, :usuario, :senha, :email, :telefone, :endereco, :nivel, 1)";
         
         $statement = $db->prepare($query);
 
+        $statement->bindValue(':cpf', $cpf);
         $statement->bindValue(':nome', $nome);
         $statement->bindValue(':usuario', $usuario);
         $statement->bindValue(':senha', $senha);
@@ -18,7 +19,6 @@
         $statement->bindValue(':nivel', $nivel);
         $statement->bindValue(':endereco', $endereco);
         $statement->bindValue(':telefone', $telefone);
-        $statement->bindValue(':cpf', $cpf);
 
         $count = $statement->execute();
 

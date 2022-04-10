@@ -68,7 +68,7 @@
             $cpf = filter_input(INPUT_POST, 'cpf');
             $telefone = filter_input(INPUT_POST, 'telefone');
 
-            $count = cadastrarUsuario($nome, $usuario, $senha, $email, $nivel, $endereco, $cpf, $telefone);
+            $count = cadastrarUsuario($cpf, $nome, $usuario, $senha, $email, $telefone, $endereco, $nivel);
             
             if ($count > 0) {
                 $message = 'Usuário cadastrado com sucesso!';
