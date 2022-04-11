@@ -9,9 +9,13 @@
 </form> -->
 <?php
 
+<<<<<<< HEAD
 //  include_once('../model/Usuario.php');
 
 include("./config.php");
+=======
+  include '/lib/model/Usuario.php';
+>>>>>>> df8852002188616715f77155ebd65b63a6f1c542
 
   $nivel = getNivel($_SESSION['usuario']);
 
@@ -98,5 +102,9 @@ include("./config.php");
     </div>
   </div>
 
+<<<<<<< HEAD
   <?php //include_once('./footer.php') ?>
+=======
+  <?php include 'footer.php';?>
+>>>>>>> df8852002188616715f77155ebd65b63a6f1c542
 </body>
