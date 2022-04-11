@@ -161,7 +161,7 @@
         echo "<th>Quantidade de livros</th>";
         echo "</tr>";
 
-        $query = "SELECT fk_autor, COUNT(fk_autor) FROM livro group by fk_autor";
+        $query = "SELECT l.fk_autor, a.nome, COUNT(l.fk_autor) FROM livro as l join autor as a group by l.fk_autor";
         $statement = $db->prepare($query);
         if ($statement->execute()) {
             $result = $statement->fetchAll();
@@ -170,8 +170,8 @@
 
         foreach ($result as $row) {
             echo "<tr>";
-            echo "<td>" . $row['fk_autor'] . "</td>";
-            echo "<td>" . $row['COUNT(fk_autor)'] . "</td>";
+            echo "<td>" . $row['nome'] . "</td>";
+            echo "<td>" . $row['COUNT(l.fk_autor)'] . "</td>";
             echo "</tr>";
         }
 
