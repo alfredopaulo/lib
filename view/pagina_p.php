@@ -7,19 +7,16 @@
     <input type="hidden" name="action" value="listarEmprestimos">
     <input type="submit" value="listar Emprestimos" />
 </form> -->
-<?php
+<!-- <?php
 
-<<<<<<< HEAD
 //  include_once('../model/Usuario.php');
 
-include("./config.php");
-=======
-  include '/lib/model/Usuario.php';
->>>>>>> df8852002188616715f77155ebd65b63a6f1c542
+// include("./config.php");
+//   include '/lib/model/Usuario.php';
 
-  $nivel = getNivel($_SESSION['usuario']);
+//   $nivel = getNivel($_SESSION['usuario']);
 
-?>
+?> -->
 
 <!DOCTYPE html>
 
