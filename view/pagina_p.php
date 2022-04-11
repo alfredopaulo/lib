@@ -9,7 +9,9 @@
 </form> -->
 <?php
 
-  include_once('../model/Usuario.php');
+//  include_once('../model/Usuario.php');
+
+include("./config.php");
 
   $nivel = getNivel($_SESSION['usuario']);
 
@@ -27,7 +29,7 @@
 
     <!-- Centered link -->
     <div class="centered">
-      <a href="/home.html">Lib 3.11</a>
+      <a href="http://localhost/lib/view/formLog.php">Lib 3.11</a>
     </div>
 
     <!-- Left-aligned links (default) -->
@@ -96,5 +98,5 @@
     </div>
   </div>
 
-  <?php include_once('./footer.php') ?>
+  <?php //include_once('./footer.php') ?>
 </body>

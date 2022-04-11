@@ -12,7 +12,7 @@
 <body>
   <section class="login-cadastro">
 
-    <form class="card-login" action="../index.php" method="post">
+    <form class="card-login" action="." method="post">
 
       <div class="card-header">
 

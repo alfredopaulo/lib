@@ -43,7 +43,7 @@
                 } else {     
                     $error = 'Usuario ou senha invalidos';
 
-                    header('location:index.php');
+                   // header('location:index.php');
                     include('view/formLog.php');
                 }
             }else{
@@ -53,7 +53,7 @@
             }
         break;
 
-        case 'sair':
+        case 'Sair':
             deslogar();
             include('view/formLog.php');
         break;
@@ -109,9 +109,9 @@
             $count = cadastrarLivro($nome_livro, $autor_livro, $isbn, $ano_publicacao);
 
             if($count > 0){
-                $error_message  = 'Livro cadastrado com sucesso!';
+                $message  = 'Livro cadastrado com sucesso!';
             }else{
-                $error_message   = 'Não foi possível cadastrar o livro!';
+                $message   = 'Não foi possível cadastrar o livro!';
             }
             echo "<script type='text/javascript'>alert('$message');</script>";
 
@@ -184,7 +184,7 @@
         break;
 
         default: 
-            header('Location: ./view/formLog.php');
+            include('./view/formLog.php');
     } 
 
 ?>
