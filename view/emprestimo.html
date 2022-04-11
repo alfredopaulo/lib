@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" href="/lib/view/styles/main.css">
+
+</head>
+
+<body>
+  <header>
+
+    <!-- Centered link -->
+    <div class="centered">
+      <a href="/home.html">Lib 3.11</a>
+    </div>
+
+    <!-- Left-aligned links (default) -->
+    <input type="button" value="Voltar" onclick="history.go(-1)">
+
+    <!-- Right-aligned links -->
+    <div class="right">
+      <a href="/login.html">Sair</a>
+    </div>
+  </header>
+
+
+  <div class="button-main">
+    <div class="button">
+      <a href="/lib/view/Emprestimo/formCadastrarEmprestimo.php" title="Cadastrar Livro">
+        <img src="/lib/view/styles/icons-images/cad-livros.png" alt="Cadastrar Livro" width="64" height="64">
+        <br>
+        <p>Cadastrar<br>Livros</p>
+      </a>
+    </div>
+
+    <div class="button">
+      <img src="/lib/view/styles/icons-images/listar.png" alt="Listar Livros" width="64" height="64">
+      <br>
+      <form action="../index.php" method="post">
+        <input type="hidden" name="action" value="listarEmprestimos">
+        <input id="butao" type="submit" value="Listar" />
+      </form>
+      <style>
+        #butao {
+          font-size: 18px;
+          cursor: pointer;
+          background: none;
+          border: none;
+          color: rgb(185, 185, 185);
+          font-weight: bold;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+
+  <footer>
+    <P>LAWHACK</P>
+    <P>2021-2022</P>
+  </footer>
+</body>

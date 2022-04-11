@@ -81,7 +81,7 @@
     </div>
 
     <div class="button">
-      <a href="/lib/view/Emprestimo/formCadastrarEmprestimo.php" title="Empréstimo">
+      <a href="/lib/view/emprestimo.html" title="Empréstimo">
         <img src="/lib/view/styles/icons-images/tarefa.png" alt="Empréstimo" width="64" height="64">
         <br>
         <p>Empréstimo</p>
