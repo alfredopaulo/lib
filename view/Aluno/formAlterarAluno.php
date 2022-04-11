@@ -65,6 +65,9 @@
 
   </div>
 
+  <?php
+    include ("../Aluno/listarAlunos.php");
+  ?>
 </body>
 
 </html>
