@@ -8,8 +8,13 @@ include("../model/libra_db.php");
 
 <form action="#" method="post">
     <input type="hidden" name="action" value="totalAutor">
-    <input type="submit" value="Listar" />
+    <input type="submit" value="Total Livros Autor" />
 
+</form>
+
+<form action="../index.php" method="post">
+    <input type="hidden" name="action" value="listarLivros">
+    <input id="butao" type="submit" value="Listar Livros" />
 </form>
 
 <input type="button" value="Voltar" onclick="history.go(-1)">
