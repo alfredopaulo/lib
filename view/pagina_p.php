@@ -1,13 +1,11 @@
-<!-- <form action="." method="post">
-    <input type="hidden" name="action" value="listarLivros">
-    <input type="submit" value="listarLivros" />
-</form>
 
-<form action="." method="post">
-    <input type="hidden" name="action" value="listarEmprestimos">
-    <input type="submit" value="listar Emprestimos" />
-</form> -->
-<!-- <?php
+<?php
+
+// <form action="." method="post">
+//     <input type="hidden" name="action" value="listarEmprestimos">
+//     <input type="submit" value="listar Emprestimos" />
+// </form> -->
+
 
 //  include_once('../model/Usuario.php');
 
@@ -16,7 +14,7 @@
 
 //   $nivel = getNivel($_SESSION['usuario']);
 
-?> -->
+?>
 
 <!DOCTYPE html>
 
@@ -99,9 +97,5 @@
     </div>
   </div>
 
-<<<<<<< HEAD
-  <?php //include_once('./footer.php') ?>
-=======
-  <?php include 'footer.php';?>
->>>>>>> df8852002188616715f77155ebd65b63a6f1c542
+  <?php include('footer.php') ?>
 </body>

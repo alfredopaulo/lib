@@ -214,3 +214,8 @@ footer {
 .excluir a:hover {
   color: antiquewhite;
 }
+
+#butao {
+  color: #b61d1d;
+  border: none;
+}
