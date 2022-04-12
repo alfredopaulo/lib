@@ -2,8 +2,6 @@
 <?php
 
 
-include("./config.php");
-  include('/lib/model/Usuario.php');
 
 //   $nivel = getNivel($_SESSION['usuario']);
 
