@@ -1,19 +1,11 @@
-<!-- <form action="." method="post">
-    <input type="hidden" name="action" value="listarLivros">
-    <input type="submit" value="listarLivros" />
-</form>
 
-<form action="." method="post">
-    <input type="hidden" name="action" value="listarEmprestimos">
-    <input type="submit" value="listar Emprestimos" />
-</form> -->
 <?php
 
 
 include("./config.php");
   include('/lib/model/Usuario.php');
 
-  $nivel = getNivel($_SESSION['usuario']);
+//   $nivel = getNivel($_SESSION['usuario']);
 
 ?>
 
@@ -82,7 +74,7 @@ include("./config.php");
     </div>
 
     <div class="button">
-      <a href="/lib/view/Emprestimo/formCadastrarEmprestimo.php" title="Empréstimo">
+      <a href="/lib/view/emprestimo.html" title="Empréstimo">
         <img src="/lib/view/styles/icons-images/tarefa.png" alt="Empréstimo" width="64" height="64">
         <br>
         <p>Empréstimo</p>
@@ -98,9 +90,5 @@ include("./config.php");
     </div>
   </div>
 
-<<<<<<< HEAD
-  <?php //include_once('./footer.php') ?>
-=======
-  <?php include 'footer.php';?>
->>>>>>> df8852002188616715f77155ebd65b63a6f1c542
+  <?php include('footer.php') ?>
 </body>

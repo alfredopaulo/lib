@@ -1,8 +1,8 @@
 
 <?php
 
-    include("../model/database.php");
-    include("../model/Livro.php");
+    include("../../model/database.php");
+    include("../../model/Livro.php");
     
 ?>
 <?php

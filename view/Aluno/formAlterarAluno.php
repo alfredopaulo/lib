@@ -30,13 +30,19 @@
 
       <div class="card-header">
 
-        <h2>Cadastro Aluno</h2>
+        <h2>Alterar Aluno</h2>
 
       </div>
 
-      <input type="hidden" name="action" value="cadastrarAluno">
+      <input type="hidden" name="action" value="alterarAluno">
 
       <div class="card-content">
+        <div class="card-cadastro-area">
+
+          <label for="id">Id</label>
+          <input type="text" id="id" name="id" value="" required>
+
+        </div>
         <div class="card-cadastro-area">
 
           <label for="nome">Nome</label>
@@ -98,6 +104,9 @@
       <div class="excluir">
         <a href="/lib/view/Aluno/excluirAluno.php">Excluir Aluno</a>
       </div>
+      <?php
+      include ("../Aluno/listarAlunos.php");
+    ?>
 
     </form>
 

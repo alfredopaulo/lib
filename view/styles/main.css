@@ -124,6 +124,17 @@ label {
   transform: translate(-50%, -50%);
 }
 
+.button-main2 {
+  display: flex;
+  flex-direction: row;
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+}
+
 .button {
   padding: 20px;
   border: 2px solid #cccccc;
@@ -213,4 +224,9 @@ footer {
 
 .excluir a:hover {
   color: antiquewhite;
+}
+
+#butao {
+  color: #b61d1d;
+  border: none;
 }

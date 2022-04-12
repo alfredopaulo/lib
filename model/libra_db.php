@@ -21,7 +21,7 @@ function login($usuario, $senha){
 
 function listarLivros(){
     global $db;
-    $query = "SELECT * FROM livros";
+    $query = "SELECT * FROM livro";
     $result = $db->query($query);
     $result->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -141,7 +141,7 @@ function cadastrar($nome, $usuario, $senha, $email, $nivel, $logradouro, $numero
 function cadastrarLivro($titulo, $autor, $stats){
     global $db;
     $count = 0;
-    $query = "INSERT INTO livros (titulo, autor, stats)
+    $query = "INSERT INTO livro (titulo, autor, stats)
               VALUES (:titulo, :autor, :stats)";
     $statement = $db->prepare($query);
     $statement->bindValue(':titulo', $titulo);
@@ -159,7 +159,7 @@ function excluirLivro($id){
 
     global $db;
     $count = 0;
-        $query = "DELETE FROM livros WHERE id = :id";
+        $query = "DELETE FROM livro WHERE id = :id";
         $statement = $db->prepare($query);
         $statement->bindValue(':id', $id);
         $count = $statement->execute();
@@ -174,7 +174,7 @@ function excluirLivro($id){
 function atualizarLivro($id, $titulo, $autor, $stats){
     global $db;
     $count = 0;
-    $query = "UPDATE livros SET titulo = :titulo, autor = :autor, stats = :stats WHERE id = :id";
+    $query = "UPDATE livro SET titulo = :titulo, autor = :autor, stats = :stats WHERE id = :id";
     $statement = $db->prepare($query);
     $statement->bindValue(':titulo', $titulo);
     $statement->bindValue(':autor', $autor);
@@ -195,9 +195,9 @@ function totalAutor($autor){
    //operacao com o group by
     global $db;
     $count = 0;
-    $query = "SELECT COUNT(*) FROM livros WHERE autor = :autor";
+    $query = "SELECT COUNT(*) FROM livro WHERE nome = :nome";
     $statement = $db->prepare($query);
-    $statement->bindValue(':autor', $autor);
+    $statement->bindValue(':nome', $autor);
     if ($statement->execute()) {
         $count = $statement->fetchColumn();
     };
@@ -218,7 +218,7 @@ echo "<br> oiiiiiiiiiii";
 function totalAutores(){
     global $db;
     $count = 0;
-    $query = "SELECT autor, COUNT(autor) FROM livros group by autor";
+    $query = "SELECT a.nome, COUNT(a.nome) FROM livro as l join autor as a group by a.nome";
     $statement = $db->prepare($query);
     if ($statement->execute()) {
         $count = $statement->fetchColumn();
@@ -233,7 +233,7 @@ function totalAutores(){
     echo "<th>Quantidade de livros</th>";
     echo "</tr>";
 
-    $query = "SELECT autor, COUNT(autor) FROM livros group by autor";
+    $query = "SELECT nome, COUNT(nome) FROM livro group by nome";
     $statement = $db->prepare($query);
     if ($statement->execute()) {
         $result = $statement->fetchAll();
@@ -242,8 +242,8 @@ function totalAutores(){
 
     foreach ($result as $row) {
         echo "<tr>";
-        echo "<td>" . $row['autor'] . "</td>";
-        echo "<td>" . $row['COUNT(autor)'] . "</td>";
+        echo "<td>" . $row['nome'] . "</td>";
+        echo "<td>" . $row['COUNT(nome)'] . "</td>";
         echo "</tr>";
     }
    
@@ -259,7 +259,7 @@ function pesquisarLivro($pesquisa){
     $count = 0;
     
 
-    $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa UNION SELECT * FROM livros WHERE autor LIKE :pesquisa";
+    $query = "SELECT * FROM livro WHERE titulo LIKE :pesquisa UNION SELECT * FROM livros WHERE autor LIKE :pesquisa";
    // $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa";
     $statement = $db->prepare($query);
     $statement->bindValue(':pesquisa', '%'.$pesquisa.'%');
@@ -278,7 +278,7 @@ function pesquisarLivro($pesquisa){
     echo "</tr>";
 
     //mostrar todos os livros em uma tabela
-    $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa UNION SELECT * FROM livros WHERE autor LIKE :pesquisa";
+    $query = "SELECT * FROM livro WHERE titulo LIKE :pesquisa UNION SELECT * FROM livro WHERE nome LIKE :pesquisa";
    // $query = "SELECT * FROM livros WHERE titulo LIKE :pesquisa";
     $statement = $db->prepare($query);
     $statement->bindValue(':pesquisa', '%'.$pesquisa.'%');
@@ -290,7 +290,7 @@ function pesquisarLivro($pesquisa){
     foreach ($result as $row) {
         echo "<tr>";
         echo "<td>" . $row['titulo'] . "</td>";
-        echo "<td>" . $row['autor'] . "</td>";
+        echo "<td>" . $row['nome'] . "</td>";
         echo "</tr>";
     }
     return $count;
