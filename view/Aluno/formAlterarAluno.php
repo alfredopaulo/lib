@@ -50,6 +50,22 @@
         
         </div>
         <style>
+          .search-content{
+            display: flex;
+            flex-direction: row;
+          }
+          .search-area input {
+            width: 349px;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: #272323;
+            border-radius: 10px;
+            border-style: none;
+            color: #ffffff;
+            font-size: 90%;
+            margin-bottom: 10px;
+            margin-right: 5px;
+          }
           #search {
             cursor: pointer;
             padding-top: 15px;
