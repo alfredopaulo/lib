@@ -76,7 +76,7 @@
                 $message = 'Não foi possível cadastrar o usuário!';
             }
             echo "<script type='text/javascript'>alert('$message');</script>";
-            include('view/Usuario/formCadastrar.php');
+            include('view/aluno.html');
         break;
 
         case 'cadastrarAluno':

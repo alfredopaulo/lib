@@ -3,6 +3,7 @@
 <head>
 
   <link rel="stylesheet" href="/lib/view/styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <title>Cadastrar</title>
 
@@ -36,24 +37,51 @@
 
       <input type="hidden" name="action" value="alterarAluno">
 
+      <div class="search-content">
+        <div class="search-area">
+
+          <input type="text" id="matriculap" name="matriculap" value="" required placeholder="Pesquisar Matrícula">
+          <input type="hidden" name="id" id="id">
+        
+        </div>
+        <div class="search-area">
+
+          <button id="search" type="submit"><i class="fa fa-search"></i></button>
+        
+        </div>
+        <style>
+          #search {
+            cursor: pointer;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 30px;
+            padding-right: 30px;
+            width: 100%;
+            background-color: #b61d1d;
+            border-radius: 10px;
+            border-style: none;
+            color: #ffffff;
+            font-size: 90%;
+            border-style: none;
+            cursor: pointer;
+            font-weight: bold;
+          }
+        </style>
+
+      </div>
+
       <div class="card-content">
         <div class="card-cadastro-area">
 
-          <label for="id">Id</label>
-          <input type="text" id="id" name="id" value="" required>
-
-        </div>
-        <div class="card-cadastro-area">
-
           <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" value="" required>
+          <input type="text" id="nome" name="nome" value="">
 
         </div>
 
         <div class="card-cadastro-area">
 
           <label for="matricula">Matrícula</label>
-          <input type="text" id="matricula" name="matricula" value="" required>
+          <input type="text" id="matricula" name="matricula" value="">
 
         </div>
 
@@ -64,7 +92,7 @@
         <div class="card-cadastro-area">
 
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" value="" required>
+          <input type="email" id="email" name="email" value="">
 
         </div>
 
@@ -72,7 +100,7 @@
 
           <label for="cpf">CPF</label>
 
-          <input type="text" id="cpf" name="cpf" value="" required>
+          <input type="text" id="cpf" name="cpf" value="">
 
         </div>
 
@@ -90,7 +118,7 @@
         <div class="card-cadastro-area">
 
           <label for="endereco">Endereço</label>
-          <input type="text" id="endereco" name="endereco" value="" required>
+          <input type="text" id="endereco" name="endereco" value="">
 
         </div>
 
@@ -104,9 +132,6 @@
       <div class="excluir">
         <a href="/lib/view/Aluno/excluirAluno.php">Excluir Aluno</a>
       </div>
-      <?php
-      include ("../Aluno/listarAlunos.php");
-    ?>
 
     </form>
 

@@ -102,7 +102,7 @@
 
         <div class="card-footer">
 
-          <input type="submit" value="Entrar" class="submit">
+          <input type="submit" value="Cadastrar" class="submit">
 
         </div>
       </div>
