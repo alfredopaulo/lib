@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'alunos.apps.AlunosConfig',
     'livros.apps.LivrosConfig',
+    'emprestimos.apps.EmprestimosConfig',
 ]
 
 MIDDLEWARE = [

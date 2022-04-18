@@ -1,0 +1,117 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+    <title>{{ titulo_pagina }}</title>
+{% endblock %}
+
+{% block btn_sair %}
+    <div class="right">
+        <a href="">Sair</a>
+    </div>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+    <div class="label_menu_left">
+        <a href="{% url 'emprestimos-index' %}">Voltar</a>
+    </div>
+{% endblock %}
+
+{% block menus %}
+<section class="login-cadastro">
+
+    <form class="card-cadastro" action="" method="post">
+
+        <div class="card-header">
+            <h2>{{ titulo_pagina }}</h2>
+        </div>
+
+        {% csrf_token %}
+
+        <!-- {{ form }} -->
+
+        {% if titulo_pagina == 'Alterar Emprestimo' %}
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    <label for="">Aluno:</label>
+                    <input type="text" value="{{ object.aluno.nome}}" disabled>
+                </div>
+            </div>
+
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    <label for="">Matricula:</label>
+                    <input type="text" value="{{ object.aluno.matricula}}" disabled>
+                </div>
+            </div>
+            
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    {{ form.data_devolucao.errors }}
+                    {{ form.data_devolucao.label_tag }}
+                    {{ form.data_devolucao }}
+                </div>
+            </div>
+
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    {{ form.status_emprestimo.errors }}
+                    {{ form.status_emprestimo.label_tag }}
+                    {{ form.status_emprestimo }}
+                </div>
+            </div>
+
+            <!-- Modificar isso aqui para nao ser editado na Devolucao -->
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    {{ form.livros.errors }}
+                    {{ form.livros.label_tag }}
+                    {{ form.livros }}
+                </div>
+            </div>
+        
+        {% else %}
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    {{ form.aluno.errors }}
+                    {{ form.aluno.label_tag }}
+                    {{ form.aluno }}
+                </div>
+            </div>
+
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    {{ form.data_limite.errors }}
+                    {{ form.data_limite.label_tag }}
+                    {{ form.data_limite }}
+                </div>
+            </div>
+
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    {{ form.livros.errors }}
+                    {{ form.livros.label_tag }}
+                    {{ form.livros }}
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="card-footer">
+            <input type="submit" value="Salvar" class="submit">
+        </div>
+
+    </form>
+
+</section>
+{% endblock %}
+
+{% block scripts%}
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.cpf')
+        })
+    </script>
+{% endblock%}

@@ -1,0 +1,47 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+    <title>Emprestimo</title>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+    <div class="label_menu_left">
+        <a href="{% url 'index' %}">Voltar</a>
+    </div>
+{% endblock %}
+
+{% block btn_sair %}
+    <div class="right">
+        <a href="">Sair</a>
+    </div>
+{% endblock %}
+
+{% block menus %}
+    <div class="button-main">
+        <div class="button">
+            <a href="{% url 'emprestimos-cadastrar' %}"Cadastrar Emprestimo">
+                <img src="{% static 'img/cadastrar.png' %}" alt="Cadastrar Emprestimo" width="64" height="64">
+                <br>
+                <p>Cadastrar<br>Emprestimo</p>
+            </a>
+        </div>
+
+        <div class="button">
+            <a href="" title="Listar Emprestimos">
+                <img src="{% static 'img/listar.png' %}" alt="Listar Emprestimos" width="64" height="64">
+                <br>
+                <p>Listar<br>Emprestimos</p>
+            </a>
+        </div>
+
+        <div class="button">
+            <a href="" title="Devolucoes">
+            <img src="{% static 'img/devolucoes.png' %}" alt="Devolucoes" width="64" height="64">
+            <br>
+            <p>Devolução</p>
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -17,6 +17,4 @@ class Livro(models.Model):
     status_ativo = models.BooleanField(default=True)
 
     def __str__(self):
-        return 'ISBN: {}, Nome do Livro: {}, Status Ativo: {}'.format(
-            self.isbn, self.nome_livro, self.status_ativo
-        )
+        return self.nome_livro

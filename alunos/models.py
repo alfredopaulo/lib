@@ -12,5 +12,4 @@ class Aluno(models.Model):
     status_ativo = models.BooleanField(default=True)
 
     def __str__(self):
-        return 'Mat.: {}, Nome: {}, Pendência: {}, Ativo: {}.'.format(
-            self.matricula, self.nome, self.status_pendencia, self.status_ativo)
+        return self.nome
