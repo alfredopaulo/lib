@@ -113,7 +113,7 @@ label {
 
 /* CADASTRAR */
 
-.cadastrar{
+.cadastrar {
   margin-bottom: 50px;
 }
 
@@ -141,14 +141,14 @@ label {
   align-items: center;
 }
 
-.card-cadastro-input{
+.card-cadastro-input {
   margin: 10px;
   width: 250px;
   display: flex;
   flex-direction: column;
 }
 
-.input-cadastrar input{
+.input-cadastrar input {
   border: #dbdbdb solid 2px;
   padding: 15px;
   border-radius: 10px;
@@ -163,4 +163,33 @@ label {
   margin-top: 10px;
   margin-bottom: 15px;
   cursor: pointer;
+}
+
+/* HOME */
+
+.button-main {
+  display: flex;
+  flex-direction: row;
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  padding: 20px;
+  border: 2px solid #cccccc;
+  background-color: rgba(19, 19, 19, 0.8);
+  text-align: center;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.button:hover {
+  width: 105px;
+  height: 105px;
+  transition: 0.5s ease-out;
 }
