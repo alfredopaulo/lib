@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 
 from .models import Emprestimo
@@ -12,7 +13,7 @@ class IndexEmprestimoView(TemplateView):
 class CadastrarEmprestimoView(CreateView):
     template_name = 'paginas/emprestimos/form.html'
     model = Emprestimo
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('emprestimos-listar')
     fields = [
         'aluno',
         'data_limite',
@@ -29,7 +30,7 @@ class CadastrarEmprestimoView(CreateView):
 class AlterarEmprestimoView(UpdateView):
     template_name = 'paginas/emprestimos/form.html'
     model = Emprestimo
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('emprestimos-listar')
     fields = [
         'aluno',
         'data_limite',
@@ -58,3 +59,8 @@ class DevolucaoEmprestimoView(UpdateView):
         context['titulo_pagina'] = 'Alterar Emprestimo'
 
         return context
+
+
+class ListarEmprestimosView(ListView):
+    template_name = 'paginas/emprestimos/list.html'
+    model = Emprestimo
