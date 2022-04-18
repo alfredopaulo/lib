@@ -57,6 +57,8 @@ class DevolucaoEmprestimoView(UpdateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context['titulo_pagina'] = 'Alterar Emprestimo'
+        # context['teste'] = self.get_object
+        print(self.object.livros.all())
 
         return context
 

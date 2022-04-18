@@ -63,11 +63,24 @@
             </div>
 
             <!-- Modificar isso aqui para nao ser editado na Devolucao -->
-            <div class="card-content">
+            <!-- <div class="card-content">
                 <div class="card-cadastro-area">
                     {{ form.livros.errors }}
                     {{ form.livros.label_tag }}
                     {{ form.livros }}
+                </div>
+            </div> -->
+
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    <label for="">Livros emprestados:</label>
+                    {% for l in object.livros.all %}
+                        <div class="card-content">
+                            <div class="card-cadastro-area">
+                                <a href="">{{l}}</a>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         
