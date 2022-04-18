@@ -3,13 +3,17 @@
 {% load static %}
 
 {% block nome_pagina %}
-<title>Cadastrar Aluno</title>
+<title>{{ titulo_pagina }}</title>
 {% endblock %}
 
 {% block btn_sair %}
 <div class="right">
     <a href="">Sair</a>
 </div>
+{% endblock %}
+
+{% block btn_index %}
+<a href="{%url 'index'%}">Lib 3.15</a>
 {% endblock %}
 
 {% block btn_voltar_pagina %}
@@ -19,119 +23,127 @@
 {% endblock %}
 
 {% block menus %}
-<section class="login-cadastro">
+<section class="cadastrar">
 
-    <form class="card-cadastro" action="" method="post">
+    <form class="card-cadastrar" method="post">
 
         <div class="card-header">
-            <h2>{{ titulo_pagina }}</h2>
+            <h1>{{ titulo_pagina }}</h1>
         </div>
 
         {% csrf_token %}
 
         <!-- {{ form }} -->
-        
-        <div class="card-content">
-            <div class="card-cadastro-area">
-                {{ form.username.errors }}
-                {{ form.username.label_tag }}
-                {{ form.username }}
-            </div>
-        </div>
+        <div class="input-cadastrar">
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input">
+                    {{ form.first_name.label_tag }}
+                    {{ form.first_name }}
+                </div>
 
-        <div class="card-content">
-            <div class="card-cadastro-area">
-                {{ form.first_name.errors }}
-                {{ form.first_name.label_tag }}
-                {{ form.first_name }}
-            </div>
-
-            <div class="card-cadastro-area">
-                {{ form.last_name.errors }}
-                {{ form.last_name.label_tag }}
-                {{ form.last_name }}
-            </div>
-        </div>
-
-        <div class="card-content">
-            <div class="card-cadastro-area">
-                {{ form.cpf.errors }}
-                {{ form.cpf.label_tag }}
-                {{ form.cpf }}
-            </div>
-
-            <div class="card-cadastro-area">
-                {{ form.email.errors }}
-                {{ form.email.label_tag }}
-                {{ form.email }}
-            </div>
-        </div>
-
-        <div class="card-content">
-            <div class="card-cadastro-area">
-                {{ form.telefone.errors }}
-                {{ form.telefone.label_tag }}
-                {{ form.telefone }}
-            </div>
-            
-            <div class="card-cadastro-area">
-                {{ form.endereco.errors }}
-                {{ form.endereco.label_tag }}
-                {{ form.endereco }}
-            </div>
-        </div>
-
-
-        <div class="card-content">
-        {% if tipo_operacao == 'alterar' %}
-            <div class="card-cadastro-area">
-                <a href="">Alterar Senha</a>
-            </div>
-        {% else %}
-            <div class="card-cadastro-area">
-                {{ form.password1.errors }}
-                {{ form.password1.label_tag }}
-                {{ form.password1 }}
-            </div>
-
-            <div class="card-cadastro-area">
-                {{ form.password2.errors }}
-                {{ form.password2.label_tag }}
-                {{ form.password2 }}
-            </div>
-        {% endif %}
-        </div>
-
-        <!--<div class="card-content">
-            <div class="card-cadastro-area">
-                {{ form.email.errors }}
-                {{ form.email.label_tag }}
-                {{ form.email }}
-            </div>
-        </div>
-        
-        <div class="card-content">
-            <div class="card-cadastro-area">
-                {{ form.password1.errors }}
-                {{ form.password1.label_tag }}
-                {{ form.password1 }}
-                <div style="width: 300px;">
-                    {{ form.password1.help_text }}
+                <div class="card-cadastro-input">
+                    {{ form.last_name.label_tag }}
+                    {{ form.last_name }}
                 </div>
             </div>
-        </div>
 
-        <div class="card-content">
-            <div class="card-cadastro-area">
-                {{ form.password2.errors }}
-                {{ form.password2.label_tag }}
-                {{ form.password2 }}
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
+
+                <div class="card-cadastro-input">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
             </div>
-        </div> -->
-        
 
-        <div class="card-footer">
-            <input type="submit" value="Salvar" class="submit">
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input">
+                    {{ form.cpf.label_tag }}
+                    {{ form.cpf }}
+                </div>
+
+                <div class="card-cadastro-input">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input">
+                    {{ form.telefone.label_tag }}
+                    {{ form.telefone }}
+                </div>
+
+                <div class="card-cadastro-input">
+                    {{ form.endereco.label_tag }}
+                    {{ form.endereco }}
+                </div>
+            </div>
+
+
+            <div class="card-content-cadastro">
+                {% if tipo_operacao == 'alterar' %}
+                <div class="card-cadastro-input">
+                    <a href="">Alterar Senha</a>
+                </div>
+                {% else %}
+                <div class="card-cadastro-input">
+                    {{ form.password1.label_tag }}
+                    {{ form.password1 }}
+                </div>
+
+                <div class="card-cadastro-input">
+                    {{ form.password2.label_tag }}
+                    {{ form.password2 }}
+                </div>
+                {% endif %}
+            </div>
+
+            <!--<div class="card-content">
+                <div class="card-cadastro-area">
+                    {{ form.email.errors }}
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+            </div>
+            
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    {{ form.password1.errors }}
+                    {{ form.password1.label_tag }}
+                    {{ form.password1 }}
+                    <div style="width: 300px;">
+                        {{ form.password1.help_text }}
+                    </div>
+                </div>
+            </div>
+    
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    {{ form.password2.errors }}
+                    {{ form.password2.label_tag }}
+                    {{ form.password2 }}
+                </div>
+            </div> -->
+
+            <br>
+            {{ form.first_name.errors }}
+            {{ form.last_name.errors }}
+            {{ form.username.errors }}
+            {{ form.cpf.errors }}
+            {{ form.email.errors }}
+            {{ form.telefone.errors }}
+            {{ form.endereco.errors }}
+            {{ form.password1.errors }}
+            {{ form.password2.errors }}
+            <br>
+            <div>
+                <input id="cadastrar" type="submit" value="Salvar" class="submit">
+            </div>
+
         </div>
 
     </form>
