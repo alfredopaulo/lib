@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <meta charset="UTF-8">
+    {% block nome_pagina %}
+        <title>LAW HACK</title>
+    {% endblock %}
+</head>
+<body>
+    <header>
+
+        <div class="centered">
+            <a href="#">Lib 3.11</a>
+        </div>
+
+        {% block btn_voltar_pagina %}
+            <img src="{% static 'img/biblioteca-on-line.png' %}" alt="Lib" height="40px">
+        {% endblock %}
+
+        {% block btn_sair %}
+            <div class="right">
+                <a href="#">Sair</a>
+            </div>
+        {% endblock %}
+    </header>
+
+    {% block menus %}
+
+    {% endblock %}
+
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+
+    <footer>
+        <P>LAWHACK</P>
+        <P>2021-2022</P>
+    </footer>
+
+    {% block scripts %}
+
+    {% endblock %}
+</body>
+</html>

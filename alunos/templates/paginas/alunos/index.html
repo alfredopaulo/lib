@@ -1,0 +1,39 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+    <title>Alunos</title>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+    <div class="label_menu_left">
+        <a href="{% url 'index' %}">Voltar</a>
+    </div>
+{% endblock %}
+
+{% block btn_sair %}
+    <div class="right">
+        <a href="">Sair</a>
+    </div>
+{% endblock %}
+
+{% block menus %}
+    <div class="button-main">
+        <div class="button">
+            <a href="{% url 'alunos-cadastrar' %}"Cadastrar Aluno">
+                <img src="{% static 'img/cadastrar.png' %}" alt="Cadastrar Aluno" width="64" height="64">
+                <br>
+                <p>Cadastrar<br>Aluno</p>
+            </a>
+        </div>
+
+        <div class="button">
+            <a href="{% url 'alunos-listar' %}" title="Listar Aluno">
+                <img src="{% static 'img/listar.png' %}" alt="Listar Aluno" width="64" height="64">
+                <br>
+                <p>Listar<br>Alunos</p>
+            </a>
+        </div>
+    </div>
+{% endblock %}

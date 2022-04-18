@@ -1,0 +1,93 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+    <title>Cadastrar Aluno</title>
+{% endblock %}
+
+{% block btn_sair %}
+    <div class="right">
+        <a href="">Sair</a>
+    </div>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+    <div class="label_menu_left">
+        <a href="{% url 'alunos-index' %}">Voltar</a>
+    </div>
+{% endblock %}
+
+{% block menus %}
+<section class="login-cadastro">
+
+    <form class="card-cadastro" action="" method="post">
+
+        <div class="card-header">
+            <h2>{{ titulo_pagina }}</h2>
+        </div>
+
+        {% csrf_token %}
+
+        <!-- {{ form.cpf.label }} -->
+        
+        <div class="card-content">
+            <div class="card-cadastro-area">
+                {{ form.matricula.errors }}
+                {{ form.matricula.label_tag }}
+                {{ form.matricula }}
+            </div>
+
+            <div class="card-cadastro-area">
+                {{ form.errors.cpf }}
+                {{ form.cpf.label_tag }}
+                {{ form.cpf }}
+            </div>
+        </div>
+        
+        <div class="card-content">
+            <div class="card-cadastro-area">
+                {{ form.errors.nome }}
+                {{ form.nome.label_tag }}
+                {{ form.nome }}
+            </div>
+
+            <div class="card-cadastro-area">
+                {{ form.errors.email }}
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+        </div>
+        
+        <div class="card-content">
+            <div class="card-cadastro-area">
+                {{ form.errors.telefone }}
+                {{ form.telefone.label_tag }}
+                {{ form.telefone }}
+            </div>
+
+            <div class="card-cadastro-area">
+                {{ form.errors.endereco }}
+                {{ form.endereco.label_tag }}
+                {{ form.endereco }}
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <input type="submit" value="Salvar" class="submit">
+        </div>
+
+    </form>
+
+</section>
+{% endblock %}
+
+{% block scripts%}
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.cpf')
+        })
+    </script>
+{% endblock%}

@@ -1,0 +1,57 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+    <title>Law Hack</title>
+{% endblock %}
+
+{% block btn_sair %}
+    <div class="right">
+        <a href="">Sair</a>
+    </div>
+{% endblock %}
+
+{% block menus %}
+    <div class="button-main">
+        <div class="button">
+            <a href="{% url 'users-index' %}" title="Admin">
+                <img src="{% static 'img/administrator.png' %}" alt="Admin" width="64" height="64">
+                <br>
+                <p>Admin</p>
+            </a>
+        </div>
+
+        <div class="button">
+            <a href="{% url 'alunos-index' %}" title="Aluno">
+            <img src="{% static 'img/aluno.png' %}" alt="Aluno" width="64" height="64">
+            <br>
+            <p>Aluno</p>
+            </a>
+        </div>
+
+        <div class="button">
+            <a href="{% url 'livros-index' %}" title="Livros">
+            <img src="{% static 'img/pilha-de-livros.png' %}" alt="Livros" width="64" height="64">
+            <br>
+            <p>Livros</p>
+            </a>
+        </div>
+
+        <div class="button">
+            <a href="" title="Emprestimo">
+            <img src="{% static 'img/tarefa.png' %}" alt="Emprestimo" width="64" height="64">
+            <br>
+            <p>Emprestimo</p>
+            </a>
+        </div>
+
+        <!-- <div class="button">
+            <a href="#" title="Devolucoes">
+            <img src="{% static 'img/devolucoes.png' %}" alt="Devolucoes" width="64" height="64">
+            <br>
+            <p>Devoluões</p>
+            </a>
+        </div> -->
+    </div>
+{% endblock %}

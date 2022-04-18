@@ -1,0 +1,59 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+    <title>{{ titulo_pagina }}</title>
+{% endblock %}
+
+{% block btn_sair %}
+    <div class="right">
+        <a href="">Sair</a>
+    </div>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+    <div class="label_menu_left">
+        <a href="{% url 'livros-index' %}">Voltar</a>
+    </div>
+{% endblock %}
+
+{% block menus %}
+    <section class="login-cadastro">
+
+        <form class="card-cadastro" action="" method="post">
+
+            <div class="card-header">
+                <h2>{{ titulo_pagina }}</h2>
+            </div>
+
+            {% csrf_token %}
+
+            <!-- {{ form }} -->
+
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    {{ form.nome.errors }}
+                    {{ form.nome.label_tag }}
+                    {{ form.nome }}
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <input type="submit" value="Salvar" class="submit">
+            </div>
+
+        </form>
+
+    </section>
+{% endblock %}
+
+{% block scripts%}
+    <!-- <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.cpf')
+        })
+    </script> -->
+{% endblock%}

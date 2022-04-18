@@ -1,0 +1,94 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+    <title>Alunos</title>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+    <div class="label_menu_left">
+        <a href="{% url 'alunos-index' %}">Voltar</a>
+    </div>
+{% endblock %}
+
+{% block btn_sair %}
+    <div class="right">
+        <a href="">Sair</a>
+    </div>
+{% endblock %}
+
+{% block menus %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <section class="login-cadastro">
+        <div class="card-cadastro">
+            <div class="card-header">
+                <h2>Alunos</h2>
+            </div>
+
+            <div class="card-content">
+                <div class="card-cadastro-area">
+                    <label for="cars">Listar por:</label>
+                    <select name="cars" id="cars">
+                        <option value="ordenar_az">Ordenar A-Z</option>
+                        <option value="ordenar_za">Ordenar Z-A</option>
+                        <option value="alunos_pendentes">Alunos pendentes</option>
+                    </select>
+                </div>
+    
+                <div class="card-cadastro-area">
+                    <form action="#"  method="post">
+                        <div class="search-content">
+                            <div class="search-area">
+                                <input type="text" id="matriculap" name="matriculap" value="" required placeholder="Pesquisar Matrícula">
+                            </div>
+        
+                            <div class="search-area">
+                                <input type="hidden" name="action" value="search">
+                                <button id="search" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>  
+                </div>
+            </div>
+
+            <table border="1">
+                <tr >
+                    <th>Matricula</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Endereco</th>
+                    <th>Opções</th>
+                </tr>
+                {% for aluno in object_list %}
+                    <tr>
+                        <TD>{{ aluno.matricula }}</TD>
+                        <TD>{{ aluno.nome }}</TD>
+                        <TD>{{ aluno.email }}</TD>
+                        <TD>{{ aluno.telefone }}</TD>
+                        <TD>{{ aluno.endereco }}</TD>
+                        <TD>
+                            <a href="{% url 'alunos-alterar' aluno.pk %}">Alterar</a>
+                            <!-- <a href="">Excluir</a> -->
+                        </TD>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3">Nenhum aluno cadastrado.</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <!-- <script>
+        $(document).ready(function(){
+            alert("importação ok")
+        })
+    </script> -->
+{% endblock %}
