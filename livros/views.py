@@ -1,10 +1,10 @@
-from pyexpat import model
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy 
 
 from .models import Autor, Livro
+from .forms import CadastroLivroForm, AlterarLivroForm
 
 
 class IndexLivroView(TemplateView):
@@ -30,13 +30,8 @@ class CadastrarAutorView(CreateView):
 class CadastrarLivroView(CreateView):
     template_name = 'paginas/livros/form_livro.html'
     model = Livro
+    form_class = CadastroLivroForm
     success_url = reverse_lazy('livros-listar')
-    fields = [
-        'isbn',
-        'nome_livro',
-        'autor',
-        'ano_publicacao',
-    ]
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -64,13 +59,8 @@ class AlterarAutorView(UpdateView):
 class AlterarLivroView(UpdateView):
     template_name = 'paginas/livros/form_livro.html'
     model = Livro
+    form_class = AlterarLivroForm
     success_url = reverse_lazy('livros-listar')
-    fields = [
-        'isbn',
-        'nome_livro',
-        'autor',
-        'ano_publicacao',
-    ]
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
