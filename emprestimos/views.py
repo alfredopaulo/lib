@@ -4,6 +4,7 @@ from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 
 from .models import Emprestimo
+from .forms import CadastrarEmprestimoForm, AlterarEmprestimoForm, DevolucaoEmprestimoForm
 
 
 class IndexEmprestimoView(TemplateView):
@@ -12,13 +13,8 @@ class IndexEmprestimoView(TemplateView):
 
 class CadastrarEmprestimoView(CreateView):
     template_name = 'paginas/emprestimos/form.html'
-    model = Emprestimo
+    form_class = CadastrarEmprestimoForm
     success_url = reverse_lazy('emprestimos-listar')
-    fields = [
-        'aluno',
-        'data_limite',
-        'livros',
-    ]
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -30,12 +26,8 @@ class CadastrarEmprestimoView(CreateView):
 class AlterarEmprestimoView(UpdateView):
     template_name = 'paginas/emprestimos/form.html'
     model = Emprestimo
+    form_class = AlterarEmprestimoForm
     success_url = reverse_lazy('emprestimos-listar')
-    fields = [
-        'aluno',
-        'data_limite',
-        'livros',
-    ]
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -47,12 +39,8 @@ class AlterarEmprestimoView(UpdateView):
 class DevolucaoEmprestimoView(UpdateView):
     template_name = 'paginas/emprestimos/form.html'
     model = Emprestimo
+    form_class = DevolucaoEmprestimoForm
     success_url = reverse_lazy('index')
-    fields = [
-        'data_devolucao',
-        'status_emprestimo',
-        'livros',
-    ]
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
