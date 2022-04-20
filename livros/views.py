@@ -80,10 +80,29 @@ class ListarAutoreView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('users-login')
     template_name = 'paginas/livros/list_autores.html'
     model = Autor
-    paginate_by = 3
+    paginate_by = 5
+
+    def get_queryset(self):
+        text_nome = self.request.GET.get('nome')
+        if text_nome:
+            nome = Autor.objects.filter(nome__icontains=text_nome)
+        else:
+            nome = Autor.objects.all()
+
+        return nome
 
 
 class ListarLivrosView(ListView):
     login_url = reverse_lazy('users-login')
     template_name = 'paginas/livros/list_livros.html'
     model = Livro
+    paginate_by = 5
+
+    def get_queryset(self):
+        text_isbn = self.request.GET.get('isbn')
+        if text_isbn:
+            isbn = Livro.objects.filter(isbn__icontains=text_isbn)
+        else:
+            isbn = Livro.objects.all()
+
+        return isbn

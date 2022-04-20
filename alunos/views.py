@@ -58,4 +58,13 @@ class ListarAlunoView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('users-login')
     template_name = 'paginas/alunos/list.html'
     model = Aluno
-    paginate_by = 10
+    paginate_by = 5
+
+    def get_queryset(self):
+        text_matricula = self.request.GET.get('matricula')
+        if text_matricula:
+            matricula = Aluno.objects.filter(matricula__icontains=text_matricula)
+        else:
+            matricula = Aluno.objects.all()
+
+        return matricula

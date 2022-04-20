@@ -35,15 +35,15 @@
                     <option value="ordenar_az">Ordenar A-Z</option>
                     <option value="ordenar_za">Ordenar Z-A</option>
                 </select>
-                <form action="#" method="post">
+                <form action="?" method="get">
                     <div class="search-content">
                         <div class="search-area">
-                            <input type="text" id="matriculap" name="matriculap" value="" required placeholder="Pesquisar Matrícula">
+                            <input type="text" id="isbn" name="isbn" value="{{ request.GET.isbn }}" required placeholder="Pesquisar por ISBN" autocomplete="off" autofocus>
                         </div>
 
                         <div class="search-area">
-                            <input type="hidden" name="action" value="search">
                             <button id="search" type="submit"><i class="fa fa-search"></i></button>
+                            <a href="{% url 'livros-listar' %}">Limpar</a>
                         </div>
                     </div>
                 </form>
@@ -75,6 +75,31 @@
             </tr>
             {% endfor %}
         </table>
+
+        <div>
+            {% if page_obj.has_previous %}
+                {% if request.GET.isbn %}
+                    <a href="?page=1&isbn={{ request.GET.isbn }}&isbn={{ request.GET.isbn }}">Primeira</a>
+                    <a href="?page={{ page_obj.previous_page_number }}&isbn={{ request.GET.isbn }}">Anterior</a>
+                {% else %}
+                    <a href="?page=1">Primeira</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            
+                {% endif %}
+            {% endif %}
+
+            <span>Página: {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+                {% if request.GET.isbn %}
+                    <a href="?page={{ page_obj.next_page_number }}&isbn={{ request.GET.isbn }}">Próximo</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}&isbn={{ request.GET.isbn }}">Última</a>
+                {% else %}
+                    <a href="?page={{ page_obj.next_page_number }}">Próximo</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Última</a>
+                {% endif %}
+            {% endif %}
+        </div>
     </div>
 </section>
 {% endblock %}

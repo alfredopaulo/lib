@@ -48,3 +48,13 @@ class ListarUserView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('users-login')
     template_name = 'paginas/users/list.html'
     model = User
+    paginate_by = 5
+
+    def get_queryset(self):
+        text_cpf = self.request.GET.get('cpf')
+        if text_cpf:
+            cpf = User.objects.filter(cpf__icontains=text_cpf)
+        else:
+            cpf = User.objects.all()
+
+        return cpf

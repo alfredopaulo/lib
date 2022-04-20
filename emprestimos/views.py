@@ -58,3 +58,13 @@ class ListarEmprestimosView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('users-login')
     template_name = 'paginas/emprestimos/list.html'
     model = Emprestimo
+    paginate_by = 5
+
+    def get_queryset(self):
+        text_matricula = self.request.GET.get('matricula')
+        if text_matricula:
+            matricula = Emprestimo.objects.filter(aluno__matricula__icontains=text_matricula)
+        else:
+            matricula = Emprestimo.objects.all()
+
+        return matricula
