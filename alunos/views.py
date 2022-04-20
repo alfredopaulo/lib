@@ -58,3 +58,4 @@ class ListarAlunoView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('users-login')
     template_name = 'paginas/alunos/list.html'
     model = Aluno
+    paginate_by = 10

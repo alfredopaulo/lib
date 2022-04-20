@@ -80,6 +80,7 @@ class ListarAutoreView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('users-login')
     template_name = 'paginas/livros/list_autores.html'
     model = Autor
+    paginate_by = 3
 
 
 class ListarLivrosView(ListView):
