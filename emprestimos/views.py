@@ -2,16 +2,19 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Emprestimo
 from .forms import CadastrarEmprestimoForm, AlterarEmprestimoForm, DevolucaoEmprestimoForm
 
 
-class IndexEmprestimoView(TemplateView):
+class IndexEmprestimoView(LoginRequiredMixin, TemplateView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/emprestimos/index.html'
 
 
-class CadastrarEmprestimoView(CreateView):
+class CadastrarEmprestimoView(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/emprestimos/form.html'
     form_class = CadastrarEmprestimoForm
     success_url = reverse_lazy('emprestimos-listar')
@@ -23,7 +26,8 @@ class CadastrarEmprestimoView(CreateView):
         return context
 
 
-class AlterarEmprestimoView(UpdateView):
+class AlterarEmprestimoView(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/emprestimos/form.html'
     model = Emprestimo
     form_class = AlterarEmprestimoForm
@@ -36,7 +40,8 @@ class AlterarEmprestimoView(UpdateView):
         return context
 
 
-class DevolucaoEmprestimoView(UpdateView):
+class DevolucaoEmprestimoView(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/emprestimos/form.html'
     model = Emprestimo
     form_class = DevolucaoEmprestimoForm
@@ -49,6 +54,7 @@ class DevolucaoEmprestimoView(UpdateView):
         return context
 
 
-class ListarEmprestimosView(ListView):
+class ListarEmprestimosView(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/emprestimos/list.html'
     model = Emprestimo

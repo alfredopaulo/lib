@@ -1,18 +1,21 @@
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
-from django.urls import reverse_lazy 
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Autor, Livro
 from .forms import CadastroLivroForm, AlterarLivroForm
 
 
-class IndexLivroView(TemplateView):
+class IndexLivroView(LoginRequiredMixin, TemplateView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/livros/index.html'
 
 
 # Cadastros
-class CadastrarAutorView(CreateView):
+class CadastrarAutorView(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/livros/form_autor.html'
     model = Autor
     success_url = reverse_lazy('livros-listar-autor')
@@ -27,7 +30,8 @@ class CadastrarAutorView(CreateView):
         return context
 
 
-class CadastrarLivroView(CreateView):
+class CadastrarLivroView(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/livros/form_livro.html'
     model = Livro
     form_class = CadastroLivroForm
@@ -41,7 +45,8 @@ class CadastrarLivroView(CreateView):
 
 
 # Alterar Cadastros
-class AlterarAutorView(UpdateView):
+class AlterarAutorView(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/livros/form_autor.html'
     model = Autor
     success_url = reverse_lazy('livros-listar-autor')
@@ -56,7 +61,8 @@ class AlterarAutorView(UpdateView):
         return context
 
 
-class AlterarLivroView(UpdateView):
+class AlterarLivroView(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/livros/form_livro.html'
     model = Livro
     form_class = AlterarLivroForm
@@ -70,11 +76,13 @@ class AlterarLivroView(UpdateView):
 
 
 # Listar Dados
-class ListarAutoreView(ListView):
+class ListarAutoreView(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/livros/list_autores.html'
     model = Autor
 
 
 class ListarLivrosView(ListView):
+    login_url = reverse_lazy('users-login')
     template_name = 'paginas/livros/list_livros.html'
     model = Livro
