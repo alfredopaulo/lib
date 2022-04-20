@@ -1,61 +1,54 @@
 {% extends 'template_main.html' %}
 
 {% block nome_pagina %}
-    <title>Login</title>
+<title>Login</title>
 {% endblock %}
 
 {% block btn_voltar_pagina %}
-    <a href="{%url 'index'%}"></a>
+<a href="{%url 'index'%}"></a>
 {% endblock %}
 
 {% block btn_sair %}
-    
+
 {% endblock %}
 
 {% block menus %}
-    <section class="login-cadastro">
+<section class="login">
 
-        {% if request.user.is_authenticated %}
-            <div class="card-login">
-                <div class="card-header">
-                    <h4>Ação não permitida</h4>
-                </div>
-                <p>Apenas administradores podem realizar a ação.</p>
+    {% if request.user.is_authenticated %}
+    <div class="card-login">
+        <div class="card-header">
+            <h4>Ação não permitida</h4>
+        </div>
+        <p>Apenas administradores podem realizar a ação.</p>
+    </div>
+    {% else %}
+    <form class="card-login" method="post">
+        {% csrf_token %}
+
+        <div class="card-header">
+            <h1>Login</h1>
+        </div>
+
+        <div class="card-content">
+            <div class="input-login">
+                {{ form.username.errors }}
+                {{ form.username.label_tag }}
+                {{ form.username }}
             </div>
-        {% else %}
-            <form class="card-login" action="" method="post">
-                {% csrf_token %}
-                
-                <div class="card-header">
-                    <h2>Login</h2>
-                </div>
 
-                <div class="card-content">
-                    {{ form }}
-                </div>
+            <div class="input-login">
+                {{ form.password.errors }}
+                {{ form.password.label_tag }}
+                {{ form.password }}
+            </div>
+            <div class="input-login">
+                <input id="logar" type="submit" value="Entrar" class="submit">
+            </div>
+        </div>
 
-                <!-- <div class="card-content">
-                    <div class="card-cadastro-area">
-                        {{ form.username.errors }}
-                        {{ form.username.label_tag }}
-                        {{ form.username }}
-                    </div>
-                </div>
-                
-                <div class="card-content">
-                    <div class="card-cadastro-area">
-                        {{ form.password.errors }}
-                        {{ form.password.label_tag }}
-                        {{ form.password }}
-                    </div>
-                </div> -->
+    </form>
+    {% endif %}
 
-                <div class="card-footer">
-                    <input type="submit" value="Entrar" class="submit">
-                </div> 
-
-            </form>
-        {% endif %}
-
-    </section>
+</section>
 {% endblock %}

@@ -65,6 +65,13 @@ footer {
 
 /* LOGIN */
 
+.card-header h1 {
+  text-align: center;
+  font-size: 35px;
+  color: aliceblue;
+  margin-bottom: 15px;
+}
+
 .login {
   float: none;
   position: absolute;
@@ -73,8 +80,8 @@ footer {
   transform: translate(-50%, -50%);
 }
 
-/* .card-login {
-  padding: 30px;
+.card-login {
+  padding: 15px 30px 30px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,16 +94,9 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-} */
-
-.card-header h1 {
-  text-align: center;
-  font-size: 35px;
-  color: aliceblue;
-  margin-bottom: 15px;
 }
 
-/* .input-login {
+.input-login {
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -112,13 +112,13 @@ footer {
   border: #dbdbdb solid 2px;
 }
 
-#logar{
+#logar {
   background-color: rgba(117, 117, 240, 0.514);
   border: none;
   margin-bottom: 0;
   margin-top: 5px;
   cursor: pointer;
-} */
+}
 
 label {
   color: aliceblue;
