@@ -3,88 +3,85 @@
 {% load static %}
 
 {% block nome_pagina %}
-    <title>Emprestimos</title>
+<title>Emprestimos</title>
 {% endblock %}
 
 {% block btn_voltar_pagina %}
-    <div class="label_menu_left">
-        <a href="{% url 'emprestimos-index' %}">Voltar</a>
-    </div>
+<div class="label_menu_left">
+    <a href="{% url 'emprestimos-index' %}">Voltar</a>
+</div>
 {% endblock %}
 
 {% block btn_sair %}
-    <div class="right">
-        <a href="">Sair</a>
-    </div>
+<div class="right">
+    <a href="">Sair</a>
+</div>
 {% endblock %}
 
 {% block menus %}
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <section class="login-cadastro">
-        <div class="card-cadastro">
-            <div class="card-header">
-                <h2>Alunos</h2>
-            </div>
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-            <div class="card-content">
-                <div class="card-cadastro-area">
-                    <label for="cars">Listar por:</label>
-                    <select name="cars" id="cars">
-                        <option value="ordenar_az">Ordenar A-Z</option>
-                        <option value="ordenar_za">Ordenar Z-A</option>
-                        <option value="alunos_pendentes">Alunos pendentes</option>
-                    </select>
-                </div>
-    
-                <div class="card-cadastro-area">
-                    <form action="#"  method="post">
-                        <div class="search-content">
-                            <div class="search-area">
-                                <input type="text" id="matriculap" name="matriculap" value="" required placeholder="Pesquisar Matrícula">
-                            </div>
-        
-                            <div class="search-area">
-                                <input type="hidden" name="action" value="search">
-                                <button id="search" type="submit"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>  
-                </div>
-            </div>
-
-            <table border="1">
-                <tr >
-                    <th>Aluno</th>
-                    <th>Data do Emprestimo</th>
-                    <th>Data de Devoulção</th>
-                    <th>Status do Emprestimo</th>
-                    <th>Opções</th>
-                </tr>
-                {% for emprestimo in object_list %}
-                    <tr>
-                        <TD>{{ emprestimo.aluno }}</TD>
-                        <TD>{{ emprestimo.data_emprestimo }}</TD>
-                        <TD>{{ emprestimo.data_devolucao }}</TD>
-                        <TD>{{ emprestimo.status_emprestimo }}</TD>
-                        <TD>
-                            <a href="{% url 'emprestimos-devolucao' emprestimo.pk %}">Devoulção</a>
-                            <a href="{% url 'emprestimos-alterar' emprestimo.pk %}">Alterar</a>
-                        </TD>
-                    </tr>
-                {% empty %}
-                    <tr>
-                        <td colspan="3">Nenhum emprestimo cadastrado.</td>
-                    </tr>
-                {% endfor %}
-            </table>
+<section class="cadastrar">
+    <div class="card-cadastrar">
+        <div class="card-header">
+            <h1>Listar Empréstimos</h1>
+            <br>
         </div>
-    </section>
+
+        <div class="card-content-list">
+            <div class="card-cadastro-list">
+                <select name="cars" id="cars">
+                    <option value="ordenar_az">Ordenar A-Z</option>
+                    <option value="ordenar_za">Ordenar Z-A</option>
+                    <option value="alunos_pendentes">Alunos pendentes</option>
+                </select>
+                <form action="#" method="post">
+                    <div class="search-content">
+                        <div class="search-area">
+                            <input type="text" id="matriculap" name="matriculap" value="" required placeholder="Pesquisar Matrícula">
+                        </div>
+
+                        <div class="search-area">
+                            <input type="hidden" name="action" value="search">
+                            <button id="search" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <table>
+            <tr>
+                <th>Aluno</th>
+                <th>Data do Emprestimo</th>
+                <th>Data de Devoulção</th>
+                <th>Status do Emprestimo</th>
+                <th>Opções</th>
+            </tr>
+            {% for emprestimo in object_list %}
+            <tr>
+                <TD>{{ emprestimo.aluno }}</TD>
+                <TD>{{ emprestimo.data_emprestimo }}</TD>
+                <TD>{{ emprestimo.data_devolucao }}</TD>
+                <TD>{{ emprestimo.status_emprestimo }}</TD>
+                <TD id="botaolistemprestimo">
+                    <a href="{% url 'emprestimos-devolucao' emprestimo.pk %}">Devoulção</a>
+                    <a href="{% url 'emprestimos-alterar' emprestimo.pk %}">Alterar</a>
+                </TD>
+            </tr>
+            {% empty %}
+            <tr>
+                <td id="table" colspan="5">Nenhum emprestimo cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
 {% endblock %}
 
 {% block scripts %}
-    <!-- <script>
+<!-- <script>
         $(document).ready(function(){
             alert("importação ok")
         })

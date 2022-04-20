@@ -19,9 +19,9 @@
 {% endblock %}
 
 {% block menus %}
-<section class="login">
+<section class="cadastrar">
 
-    <form class="card-cadastro" method="post">
+    <form class="card-cadastrar" method="post">
 
         <div class="card-header">
             <h1>{{ titulo_pagina }}</h1>
@@ -33,99 +33,99 @@
 
         <div class="input-cadastrar">
             {% if titulo_pagina == 'Devolucao Emprestimo' %}
-                <div class="card-content-cadastro">
-                    <div class="card-cadastro-input">
-                        <label for="">Aluno:</label>
-                        <input type="text" value="{{ object.aluno.nome}}" disabled>
-                    </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    <label for="">Aluno:</label>
+                    <input type="text" value="{{ object.aluno.nome}}" disabled>
                 </div>
+            </div>
 
-                <div class="card-content-cadastro">
-                    <div class="card-cadastro-input">
-                        <label for="">Matricula:</label>
-                        <input type="text" value="{{ object.aluno.matricula}}" disabled>
-                    </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    <label for="">Matricula:</label>
+                    <input type="text" value="{{ object.aluno.matricula}}" disabled>
                 </div>
+            </div>
 
-                <div class="card-content-cadastro">
-                    <div class="card-cadastro-input">
-                        {{ form.data_devolucao.errors }}
-                        {{ form.data_devolucao.label_tag }}
-                        {{ form.data_devolucao }}
-                    </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.data_devolucao.errors }}
+                    {{ form.data_devolucao.label_tag }}
+                    {{ form.data_devolucao }}
                 </div>
+            </div>
 
-                <div class="card-content-cadastro">
-                    <div class="card-cadastro-input">
-                        {{ form.status_emprestimo.errors }}
-                        {{ form.status_emprestimo.label_tag }}
-                        {{ form.status_emprestimo }}
-                    </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.status_emprestimo.errors }}
+                    {{ form.status_emprestimo.label_tag }}
+                    {{ form.status_emprestimo }}
                 </div>
+            </div>
 
-                <div class="card-content">
-                    <div class="card-cadastro-area">
-                        <label for="">Livros emprestados:</label>
-                        {% for l in object.livros.all %}
-                            <div class="card-content">
-                                <div class="card-cadastro-area">
-                                    <a href="">{{l}}</a>
-                                </div>
-                            </div>
-                        {% endfor %}
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-area">
+                    <label for="">Livros emprestados:</label>
+                    {% for l in object.livros.all %}
+                    <div class="card-content">
+                        <div class="card-cadastro-area">
+                            <a href="">{{l}}</a>
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
+            </div>
             {% elif titulo_pagina == 'Alterar Emprestimo' %}
-                <div class="card-content-cadastro">
-                    <div class="card-cadastro-input">
-                        {{ form.aluno.errors }}
-                        {{ form.aluno.label_tag }}
-                        {{ form.aluno }}
-                    </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.aluno.errors }}
+                    {{ form.aluno.label_tag }}
+                    {{ form.aluno }}
                 </div>
+            </div>
 
-                <div class="card-content-cadastro">
-                    <div class="card-cadastro-input">
-                        {{ form.data_limite.errors }}
-                        {{ form.data_limite.label_tag }}
-                        {{ form.data_limite }}
-                    </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.data_limite.errors }}
+                    {{ form.data_limite.label_tag }}
+                    {{ form.data_limite }}
                 </div>
+            </div>
 
-                <div class="card-content-cadastro">
-                    <div class="card-cadastro-input">
-                        {{ form.livros.errors }}
-                        {{ form.livros.label_tag }}
-                        {{ form.livros }}
-                    </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.livros.errors }}
+                    {{ form.livros.label_tag }}
+                    {{ form.livros }}
                 </div>
+            </div>
             {% else %}
-                <div class="card-content-cadastro">
-                    <div class="card-cadastro-input">
-                        {{ form.aluno.errors }}
-                        {{ form.aluno.label_tag }}
-                        {{ form.aluno }}
-                    </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.aluno.errors }}
+                    {{ form.aluno.label_tag }}
+                    {{ form.aluno }}
                 </div>
-                <div class="card-content-cadastro">
-                    <div class="card-cadastro-input">
-                        {{ form.data_limite.errors }}
-                        {{ form.data_limite.label_tag }}
-                        {{ form.data_limite }}
-                    </div>
+            </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.data_limite.errors }}
+                    {{ form.data_limite.label_tag }}
+                    {{ form.data_limite }}
                 </div>
+            </div>
 
-                <div class="card-content-cadastro">
-                    <div class="card-cadastro-input">
-                        {{ form.livros.errors }}
-                        {{ form.livros.label_tag }}
-                        {{ form.livros }}
-                    </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.livros.errors }}
+                    {{ form.livros.label_tag }}
+                    {{ form.livros }}
                 </div>
+            </div>
             {% endif %}
-            
-            <div>
-                <input id="cadastrar" type="submit" value="Salvar" class="submit">
+
+            <div class="cadastrar-emprestimo">
+                <input type="submit" value="Salvar" class="submit">
             </div>
         </div>
 
