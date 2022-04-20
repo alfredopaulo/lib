@@ -77,28 +77,32 @@
             {% endfor %}
         </table>
 
-        {% if page_obj.has_previous %}
-                {% if request.GET.matricula %}
-                    <a href="?page=1&matricula={{ request.GET.matricula }}&matricula={{ request.GET.matricula }}">Primeira</a>
-                    <a href="?page={{ page_obj.previous_page_number }}&matricula={{ request.GET.matricula }}">Anterior</a>
-                {% else %}
-                    <a href="?page=1">Primeira</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
-            
-                {% endif %}
-            {% endif %}
-
+        <br>
+        <div class="pagina">
             <span>Página: {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
-
-            {% if page_obj.has_next %}
-                {% if request.GET.matricula %}
-                    <a href="?page={{ page_obj.next_page_number }}&matricula={{ request.GET.matricula }}">Próximo</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}&matricula={{ request.GET.matricula }}">Última</a>
+            <div class="page-nav">
+                {% if page_obj.has_previous %}
+                {% if request.GET.cpf %}
+                <a href="?page=1&cpf={{ request.GET.cpf }}&cpf={{ request.GET.cpf }}">Primeira</a>
+                <a href="?page={{ page_obj.previous_page_number }}&cpf={{ request.GET.cpf }}">Anterior</a>
                 {% else %}
-                    <a href="?page={{ page_obj.next_page_number }}">Próximo</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">Última</a>
+                <a href="?page=1">Primeira</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+
                 {% endif %}
-            {% endif %}
+                {% endif %}
+
+                {% if page_obj.has_next %}
+                {% if request.GET.cpf %}
+                <a href="?page={{ page_obj.next_page_number }}&cpf={{ request.GET.cpf }}">Próximo</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&cpf={{ request.GET.cpf }}">Última</a>
+                {% else %}
+                <a href="?page={{ page_obj.next_page_number }}">Próximo</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Última</a>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

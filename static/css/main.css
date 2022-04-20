@@ -361,3 +361,17 @@ TD a {
   margin-bottom: 15px;
   cursor: pointer;
 }
+
+/* NAVEGAÇÃO */
+.pagina {
+  text-align: center;
+}
+
+.pagina span {
+  color: white;
+}
+
+.page-nav a {
+  text-align: center;
+  margin: 5px;
+}
