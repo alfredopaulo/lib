@@ -382,3 +382,17 @@ TD a {
   text-align: center;
   color: rgb(255, 124, 124);
 }
+
+::-webkit-calendar-picker-indicator {
+  background-color: azure;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+select {
+  cursor: pointer;
+}
+
+.card-cadastro-input-emprestimo select option {
+  color: aliceblue;
+}

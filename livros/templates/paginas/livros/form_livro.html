@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block btn_sair %}
-    <div class="right">
-        <a href="{% url 'users-logout' %}">Sair</a>
-    </div>
+<div class="right">
+    <a href="{% url 'users-logout' %}">Sair</a>
+</div>
 {% endblock %}
 
 {% block btn_voltar_pagina %}
@@ -33,7 +33,7 @@
         <div class="input-cadastrar">
             <div class="card-content-cadastro">
                 <div class="card-cadastro-input-livro">
-                    {{ form.isbn.errors }}
+
                     {{ form.isbn.label_tag }}
                     {{ form.isbn }}
                 </div>
@@ -41,7 +41,7 @@
 
             <div class="card-content-cadastro">
                 <div class="card-cadastro-input-livro">
-                    {{ form.nome_livro.errors }}
+
                     {{ form.nome_livro.label_tag }}
                     {{ form.nome_livro }}
                 </div>
@@ -49,7 +49,7 @@
 
             <div class="card-content-cadastro">
                 <div class="card-cadastro-input-livro">
-                    {{ form.autor.errors }}
+
                     {{ form.autor.label_tag }}
                     {{ form.autor }}
                 </div>
@@ -57,13 +57,17 @@
 
             <div class="card-content-cadastro">
                 <div class="card-cadastro-input-livro">
-                    {{ form.ano_publicacao.errors }}
+
                     {{ form.ano_publicacao.label_tag }}
                     {{ form.ano_publicacao }}
                 </div>
             </div>
 
             <div>
+                {{ form.isbn.errors }}
+                {{ form.nome_livro.errors }}
+                {{ form.autor.errors }}
+                {{ form.ano_publicacao.errors }}
                 <input id="cadastrar-livro" type="submit" value="Salvar" class="submit">
             </div>
         </div>
