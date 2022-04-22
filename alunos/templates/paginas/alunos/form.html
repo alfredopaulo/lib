@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block btn_sair %}
-    <div class="right">
-        <a href="{% url 'users-logout' %}">Sair</a>
-    </div>
+<div class="right">
+    <a href="{% url 'users-logout' %}">Sair</a>
+</div>
 {% endblock %}
 
 {% block btn_voltar_pagina %}
@@ -34,13 +34,13 @@
 
             <div class="card-content-cadastro">
                 <div class="card-cadastro-input">
-                    {{ form.matricula.errors }}
+
                     {{ form.matricula.label_tag }}
                     {{ form.matricula }}
                 </div>
 
                 <div class="card-cadastro-input">
-                    {{ form.errors.cpf }}
+
                     {{ form.cpf.label_tag }}
                     {{ form.cpf }}
                 </div>
@@ -48,13 +48,13 @@
 
             <div class="card-content-cadastro">
                 <div class="card-cadastro-input">
-                    {{ form.errors.nome }}
+
                     {{ form.nome.label_tag }}
                     {{ form.nome }}
                 </div>
 
                 <div class="card-cadastro-input">
-                    {{ form.errors.email }}
+
                     {{ form.email.label_tag }}
                     {{ form.email }}
                 </div>
@@ -62,25 +62,30 @@
 
             <div class="card-content-cadastro">
                 <div class="card-cadastro-input">
-                    {{ form.errors.telefone }}
+
                     {{ form.telefone.label_tag }}
                     {{ form.telefone }}
                 </div>
 
                 <div class="card-cadastro-input">
-                    {{ form.errors.endereco }}
                     {{ form.endereco.label_tag }}
                     {{ form.endereco }}
                 </div>
             </div>
 
             <div>
+                {{ form.matricula.errors }}
+                {{ form.errors.cpf }}
+                {{ form.errors.nome }}
+                {{ form.errors.email }}
+                {{ form.errors.telefone }}
+                {{ form.errors.endereco }}
                 <input id="cadastrar" type="submit" value="Salvar" class="submit">
             </div>
-        
+
         </div>
-        
-            </form>
+
+    </form>
 
 </section>
 {% endblock %}

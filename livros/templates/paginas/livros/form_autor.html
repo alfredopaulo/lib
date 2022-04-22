@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block btn_sair %}
-    <div class="right">
-        <a href="{% url 'users-logout' %}">Sair</a>
-    </div>
+<div class="right">
+    <a href="{% url 'users-logout' %}">Sair</a>
+</div>
 {% endblock %}
 
 {% block btn_voltar_pagina %}
@@ -33,13 +33,13 @@
         <div class="input-cadastrar">
             <div class="card-content-cadastro">
                 <div class="card-cadastro-input-livro">
-                    {{ form.nome.errors }}
                     {{ form.nome.label_tag }}
                     {{ form.nome }}
                 </div>
             </div>
 
             <div>
+                {{ form.nome.errors }}
                 <input id="cadastrar-livro" type="submit" value="Salvar" class="submit">
             </div>
         </div>
