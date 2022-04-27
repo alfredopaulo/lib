@@ -1,0 +1,88 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+<title>{{ titulo_pagina }}</title>
+{% endblock %}
+
+{% block btn_sair %}
+<div class="right">
+    <a href="{% url 'users-logout' %}">Sair</a>
+</div>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+<div class="label_menu_left">
+    <a href="{% url 'livros-index' %}">Voltar</a>
+</div>
+{% endblock %}
+
+{% block menus %}
+<section class="login">
+
+    <form class="card-cadastrar" method="post">
+
+        <div class="card-header">
+            <h1>{{ titulo_pagina }}</h1>
+        </div>
+
+        {% csrf_token %}
+
+        <!-- {{ form }} -->
+        <div class="input-cadastrar">
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-livro">
+
+                    {{ form.isbn.label_tag }}
+                    {{ form.isbn }}
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-livro">
+
+                    {{ form.nome_livro.label_tag }}
+                    {{ form.nome_livro }}
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-livro">
+
+                    {{ form.autor.label_tag }}
+                    {{ form.autor }}
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-livro">
+
+                    {{ form.ano_publicacao.label_tag }}
+                    {{ form.ano_publicacao }}
+                </div>
+            </div>
+
+            <div>
+                {{ form.isbn.errors }}
+                {{ form.nome_livro.errors }}
+                {{ form.autor.errors }}
+                {{ form.ano_publicacao.errors }}
+                <input id="cadastrar-livro" type="submit" value="Salvar" class="submit">
+            </div>
+        </div>
+
+    </form>
+
+</section>
+{% endblock %}
+
+{% block scripts%}
+<!-- <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.cpf')
+        })
+    </script> -->
+{% endblock%}

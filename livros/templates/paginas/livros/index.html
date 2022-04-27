@@ -1,0 +1,55 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+    <title>Livro</title>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+    <div class="label_menu_left">
+        <a href="{% url 'index' %}">Voltar</a>
+    </div>
+{% endblock %}
+
+{% block btn_sair %}
+    <div class="right">
+        <a href="{% url 'users-logout' %}">Sair</a>
+    </div>
+{% endblock %}
+
+{% block menus %}
+    <div class="button-main">
+        <div class="button">
+            <a href="{% url 'livros-cadastrar' %}"Cadastrar Livro">
+                <img src="{% static 'img/cad-livros.png' %}" alt="Cadastrar Livro" width="64" height="64">
+                <br>
+                <p>Cadastrar<br>Livro</p>
+            </a>
+        </div>
+
+        <div class="button">
+            <a href="{% url 'livros-cadastrar-autor' %}"Cadastrar Autor">
+                <img src="{% static 'img/cadastrar.png' %}" alt="Cadastrar Autor" width="64" height="64">
+                <br>
+                <p>Cadastrar<br>Autor</p>
+            </a>
+        </div>
+
+        <div class="button">
+            <a href="{% url 'livros-listar' %}" title="Listar Livros">
+                <img src="{% static 'img/listar.png' %}" alt="Listar Livros" width="64" height="64">
+                <br>
+                <p>Listar<br>Livros</p>
+            </a>
+        </div>
+
+        <div class="button">
+            <a href="{% url 'livros-listar-autor' %}" title="Listar Autores">
+                <img src="{% static 'img/listar.png' %}" alt="Listar Autores" width="64" height="64">
+                <br>
+                <p>Listar<br>Autores</p>
+            </a>
+        </div>
+    </div>
+{% endblock %}

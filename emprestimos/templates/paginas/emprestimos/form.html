@@ -1,0 +1,142 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+<title>{{ titulo_pagina }}</title>
+{% endblock %}
+
+{% block btn_sair %}
+<div class="right">
+    <a href="{% url 'users-logout' %}">Sair</a>
+</div>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+<div class="label_menu_left">
+    <a href="{% url 'emprestimos-index' %}">Voltar</a>
+</div>
+{% endblock %}
+
+{% block menus %}
+<section class="cadastrar">
+
+    <form class="card-cadastrar" method="post">
+
+        <div class="card-header">
+            <h1>{{ titulo_pagina }}</h1>
+        </div>
+
+        {% csrf_token %}
+
+        <!-- {{ form }} -->
+
+        <div class="input-cadastrar">
+            {% if titulo_pagina == 'Devolucao Emprestimo' %}
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    <label for="">Aluno:</label>
+                    <input type="text" value="{{ object.aluno.nome}}" disabled>
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    <label for="">Matricula:</label>
+                    <input type="text" value="{{ object.aluno.matricula}}" disabled>
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.data_devolucao.label_tag }}
+                    {{ form.data_devolucao }}
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.status_emprestimo.label_tag }}
+                    {{ form.status_emprestimo }}
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-area">
+                    <label for="">Livros emprestados:</label>
+                    {% for l in object.livros.all %}
+                    <div class="card-content">
+                        <div class="card-cadastro-area">
+                            <a href="">{{l}}</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% elif titulo_pagina == 'Alterar Emprestimo' %}
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.aluno.label_tag }}
+                    {{ form.aluno }}
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.data_limite.label_tag }}
+                    {{ form.data_limite }}
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.livros.label_tag }}
+                    {{ form.livros }}
+                </div>
+            </div>
+            {% else %}
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.aluno.label_tag }}
+                    {{ form.aluno }}
+                </div>
+            </div>
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.data_limite.label_tag }}
+                    {{ form.data_limite }}
+                </div>
+            </div>
+
+            <div class="card-content-cadastro">
+                <div class="card-cadastro-input-emprestimo">
+                    {{ form.livros.label_tag }}
+                    {{ form.livros }}
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="cadastrar-emprestimo">
+                {{ form.aluno.errors }}
+                {{ form.data_limite.errors }}
+                {{ form.livros.errors }}
+                {{ form.data_devolucao.errors }}
+                {{ form.status_emprestimo.errors }}
+                <input type="submit" value="Salvar" class="submit">
+            </div>
+        </div>
+
+    </form>
+
+</section>
+{% endblock %}
+
+{% block scripts%}
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.cpf')
+    })
+</script>
+{% endblock%}

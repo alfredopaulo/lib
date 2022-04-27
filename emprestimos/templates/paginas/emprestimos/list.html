@@ -1,0 +1,116 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+<title>Emprestimos</title>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+<div class="label_menu_left">
+    <a href="{% url 'emprestimos-index' %}">Voltar</a>
+</div>
+{% endblock %}
+
+{% block btn_sair %}
+<div class="right">
+    <a href="{% url 'users-logout' %}">Sair</a>
+</div>
+{% endblock %}
+
+{% block menus %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="cadastrar">
+    <div class="card-cadastrar">
+        <div class="card-header">
+            <h1>Listar Empréstimos</h1>
+            <br>
+        </div>
+
+        <div class="card-content-list">
+            <div class="card-cadastro-list">
+                <select name="cars" id="cars">
+                    <option value="ordenar_az">Ordenar A-Z</option>
+                    <option value="ordenar_za">Ordenar Z-A</option>
+                    <option value="alunos_pendentes">Alunos pendentes</option>
+                </select>
+                <form action="?" method="get">
+                    <div class="search-content">
+                        <div class="search-area">
+                            <input type="text" id="nome" name="matricula" value="{{ request.GET.matricula }}" required placeholder="Pesquisar por matricula" autocomplete="off" autofocus>
+                        </div>
+
+                        <div class="search-area">
+                            <button id="search" type="submit"><i class="fa fa-search"></i></button>
+                            <a href="{% url 'alunos-listar' %}">Limpar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <table>
+            <tr>
+                <th>Aluno</th>
+                <th>Data do Emprestimo</th>
+                <th>Data de Devoulção</th>
+                <th>Status do Emprestimo</th>
+                <th>Opções</th>
+            </tr>
+            {% for emprestimo in object_list %}
+            <tr>
+                <TD>{{ emprestimo.aluno }}</TD>
+                <TD>{{ emprestimo.data_emprestimo }}</TD>
+                <TD>{{ emprestimo.data_devolucao }}</TD>
+                <TD>{{ emprestimo.status_emprestimo }}</TD>
+                <TD id="botaolistemprestimo">
+                    <a href="{% url 'emprestimos-devolucao' emprestimo.pk %}">Devoulção</a>
+                    <a href="{% url 'emprestimos-alterar' emprestimo.pk %}">Alterar</a>
+                </TD>
+            </tr>
+            {% empty %}
+            <tr>
+                <td id="table" colspan="5">Nenhum emprestimo cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <div class="pagina">
+            <span>Página: {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+            <div class="page-nav">
+                {% if page_obj.has_previous %}
+                {% if request.GET.cpf %}
+                <a href="?page=1&cpf={{ request.GET.cpf }}&cpf={{ request.GET.cpf }}">Primeira</a>
+                <a href="?page={{ page_obj.previous_page_number }}&cpf={{ request.GET.cpf }}">Anterior</a>
+                {% else %}
+                <a href="?page=1">Primeira</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+
+                {% endif %}
+                {% endif %}
+
+                {% if page_obj.has_next %}
+                {% if request.GET.cpf %}
+                <a href="?page={{ page_obj.next_page_number }}&cpf={{ request.GET.cpf }}">Próximo</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&cpf={{ request.GET.cpf }}">Última</a>
+                {% else %}
+                <a href="?page={{ page_obj.next_page_number }}">Próximo</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Última</a>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<!-- <script>
+        $(document).ready(function(){
+            alert("importação ok")
+        })
+    </script> -->
+{% endblock %}

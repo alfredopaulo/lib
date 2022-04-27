@@ -1,0 +1,114 @@
+{% extends "template_main.html" %}
+
+{% load static %}
+
+{% block nome_pagina %}
+<title>Livros</title>
+{% endblock %}
+
+{% block btn_voltar_pagina %}
+<div class="label_menu_left">
+    <a href="{% url 'livros-index' %}">Voltar</a>
+</div>
+{% endblock %}
+
+{% block btn_sair %}
+<div class="right">
+    <a href="{% url 'users-logout' %}">Sair</a>
+</div>
+{% endblock %}
+
+{% block menus %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="cadastrar">
+    <div class="card-cadastrar">
+        <div class="card-header">
+            <h1>Listar Livros</h1>
+            <br>
+        </div>
+
+        <div class="card-content-list">
+            <div class="card-cadastro-list">
+                <select name="cars" id="cars">
+                    <option value="ordenar_az">Ordenar A-Z</option>
+                    <option value="ordenar_za">Ordenar Z-A</option>
+                </select>
+                <form action="?" method="get">
+                    <div class="search-content">
+                        <div class="search-area">
+                            <input type="text" id="isbn" name="isbn" value="{{ request.GET.isbn }}" required placeholder="Pesquisar por ISBN" autocomplete="off" autofocus>
+                        </div>
+
+                        <div class="search-area">
+                            <button id="search" type="submit"><i class="fa fa-search"></i></button>
+                            <a href="{% url 'livros-listar' %}">Limpar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <table>
+            <tr>
+                <th>ISBN</th>
+                <th>Nome do Livro</th>
+                <th>Autor</th>
+                <th>Ano de Publicação</th>
+                <th>Opções</th>
+            </tr>
+            {% for livro in object_list %}
+            <tr>
+                <TD>{{ livro.isbn }}</TD>
+                <TD>{{ livro.nome_livro }}</TD>
+                <TD>{{ livro.autor }}</TD>
+                <TD>{{ livro.ano_publicacao }}</TD>
+                <TD>
+                    <a href="{% url 'livros-alterar' livro.pk %}">Alterar</a>
+                    <!-- <a href="">Excluir</a> -->
+                </TD>
+            </tr>
+            {% empty %}
+            <tr>
+                <td id="table" colspan="5">Nenhum livro cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <div class="pagina">
+            <span>Página: {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+            <div class="page-nav">
+                {% if page_obj.has_previous %}
+                {% if request.GET.cpf %}
+                <a href="?page=1&cpf={{ request.GET.cpf }}&cpf={{ request.GET.cpf }}">Primeira</a>
+                <a href="?page={{ page_obj.previous_page_number }}&cpf={{ request.GET.cpf }}">Anterior</a>
+                {% else %}
+                <a href="?page=1">Primeira</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+
+                {% endif %}
+                {% endif %}
+
+                {% if page_obj.has_next %}
+                {% if request.GET.cpf %}
+                <a href="?page={{ page_obj.next_page_number }}&cpf={{ request.GET.cpf }}">Próximo</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&cpf={{ request.GET.cpf }}">Última</a>
+                {% else %}
+                <a href="?page={{ page_obj.next_page_number }}">Próximo</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Última</a>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<!-- <script>
+        $(document).ready(function(){
+            alert("importação ok")
+        })
+    </script> -->
+{% endblock %}
